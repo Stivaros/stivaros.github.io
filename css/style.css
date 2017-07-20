@@ -4,10 +4,6 @@
 */
 /* Variables & Globals */
 
-* {
-  font-size: 16px;
-}
-
 :root {
   --dark-primary-colour: #689f38;
   --primary-colour: #8bc34a;
@@ -18,6 +14,16 @@
   --divider: #BDBDBD;
 
 }
+
+/* Typography */
+
+h1 { font-size: 3.998em; }
+
+h2 { font-size: 2.827em; }
+
+h3 { font-size: 1.999em; }
+
+h4 { font-size: 1.414em; }
 
 /* Nav */
 
@@ -61,4 +67,10 @@
 
 .material-icons.md-16:hover {
   color: var(--dark-primary-colour)
+}
+
+/* About */
+
+.about {
+  background-color: var(--primary-colour);
 }
