@@ -4,7 +4,10 @@
 */
 /* Variables & Globals */
 
-* { font-size: 16px; }
+* { 
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
 
 :root {
   --dark-primary-colour: #689f38;
@@ -18,7 +21,14 @@
 
 /* Typography */
 
-h1 { font-size: 3.998em; }
+h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Muli', sans-serif;
+  font-size: 3.998em;
+}
 
 h2 { font-size: 2.827em; }
 
@@ -30,7 +40,6 @@ h4 { font-size: 1.414em; }
 
 .navbar {
   border-bottom: 1px solid var(--divider);
-  font-family: 'Montserrat', sans-serif;
   margin-bottom: 0;
   min-height: 40px;
   -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -43,6 +52,7 @@ h4 { font-size: 1.414em; }
 }
 
 .navbar-brand, .navbar-nav>li>a {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   height: 39px;
 }
