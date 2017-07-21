@@ -108,6 +108,11 @@ h4 { font-size: 1.414em; }
 
 .about p { color: #fff; }
 
+.main-skill {
+  color: var(--secondary-text);
+  font-size: 1em;
+ }
+
 .panel {
   background-color: var(--dark-primary-colour);
 }
