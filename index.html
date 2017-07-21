@@ -8,11 +8,13 @@
 
     <!-- Bootstrap (Paper: https://bootswatch.com) -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/style.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Muli|Nunito+Sans" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -39,9 +41,52 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <h1>Header</h1>
-
-    <p>Paragraph text</p>
+    <section class="about container-fluid">
+      <h1>Hello, I am a <span class="main-skill">Web Developer</span> from London.</h1>
+      <h2>I make websites using
+        <span
+          class="txt-rotate"
+          data-period="2000"
+          data-rotate='[ "HTML", "CSS", "JavaScript", "Ruby on Rails"]'>
+        </span>
+      </h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Bio</h3>
+          <p>Born and raised in London, I was given my first computer by my parents, aged 12. It was love at first sight. Since then I have been obsessed with design and development.</p>
+          <p>I spend most of my leisure time reading about web development news, development tools and adding to my skill set. I am lucky to have a passion that is also a viable career.</p>
+          <p>When not at a computer, I enjoy reading, playing &amp; watching sports (mainly football and badminton) and spending time with friends.</p>
+        </div>
+        <div class="col-md-offset-2 col-md-3 text-center">
+          <div class="panel panel-default">
+            <div class="panel-heading h3">Skills</div>
+            <div class="panel-body">
+              <i class="material-icons">code</i>
+              <ul class="list-inline">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>Ruby on Rails</li>
+                <li>Git</li>
+                <li>BDD</li>
+              </ul><br>
+              <i class="material-icons">trending_up</i>
+              <ul class="list-inline">
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+                <li>Project Management</li>
+                <li>Content Writing</li>
+                <li>Documentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5 text-center">
+          <a class="btn btn-default download-cv" href="docs/EfstathiosStivarosCV.pdf" target="_blank"><i class="material-icons dl-cv-icon">file_download</i> Download CV</a>
+        </div>
+    </section>
 
     <!-- Scripts -->
     <!-- jQuery -->
@@ -50,5 +95,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Name Pronouncer -->
     <script type="text/javascript" src="js/pronounceName.js"></script>
+    <!-- Text Animation -->
+    <script type="text/javascript" src="js/textAnimate.js"></script>
   </body>
 </html>
