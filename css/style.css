@@ -5,11 +5,6 @@
 
 /* Variables, Bootstrap Overwrites & Globals */
 
-* { 
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 16px;
-}
-
 :root {
   --dark-primary-colour: #689f38;
   --primary-colour: #8bc34a;
@@ -18,6 +13,12 @@
   --secondary-text: #757575;
   --accent: #9e9e9e;
   --divider: #BDBDBD;
+}
+
+body { 
+  color: var(--primary-text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
 }
 
 .btn {
@@ -40,6 +41,8 @@ h2 { font-size: 2.827em; }
 h3 { font-size: 1.999em; }
 
 h4 { font-size: 1.414em; }
+
+a { color: var(--primary-colour) }
 
 /* Nav */
 
@@ -75,7 +78,9 @@ h4 { font-size: 1.414em; }
   color: var(--primary-text);
 }
 
-.navbar-default .navbar-nav>li>a:hover { background-color: var(--light-primary-colour); }
+.navbar-default .navbar-nav>li>a:hover {
+  background-color: var(--light-primary-colour);
+}
 
 .material-icons.md-16 {
   color: var(--primary-colour);
@@ -103,7 +108,7 @@ h4 { font-size: 1.414em; }
 
 .animate-wrap {
   font-family: 'Monserrat', sans-serif;
-  font-size: 2.827em;
+  font-size: 1em;
 }
 
 .about p { color: #fff; }
@@ -113,17 +118,17 @@ h4 { font-size: 1.414em; }
   font-size: 1em;
  }
 
-.panel {
+.about .panel {
   background-color: var(--dark-primary-colour);
 }
 
-.panel .panel-heading {
+.about .panel .panel-heading {
   background-color: var(--dark-primary-colour);
   color: var(--light-primary-colour);
   margin-bottom: 0;
 }
 
-.panel .panel-body {
+.about .panel .panel-body {
   color: #fff;
 }
 
@@ -135,4 +140,26 @@ h4 { font-size: 1.414em; }
 
 .dl-cv-icon {
   vertical-align: middle;
+}
+
+/* Work Section */
+
+.work a:hover {
+  border-bottom: 2px solid var(--dark-primary-colour);
+  color: var(--dark-primary-colour);
+  text-decoration: none;
+}
+
+.work h2 {
+  color: var(--dark-primary-colour);
+  font-family: 'Muli', sans-serif;
+  margin-bottom: 50px;
+}
+
+.work h3 { color: var(--dark-primary-colour) }
+
+.project-skills {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.707em;
 }
