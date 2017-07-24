@@ -25,6 +25,8 @@ body {
   font-size: 1em;
 }
 
+.vert-align-icon { vertical-align: middle }
+
 /* Typography */
 
 h2, h3, h4 {
@@ -135,16 +137,11 @@ a { color: var(--primary-colour) }
 .download-cv {
   color: var(--secondary-text);
   font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-}
-
-.dl-cv-icon {
-  vertical-align: middle;
 }
 
 /* Work Section */
 
-.work a:hover {
+.work p a:hover {
   border-bottom: 2px solid var(--dark-primary-colour);
   color: var(--dark-primary-colour);
   text-decoration: none;
@@ -164,7 +161,7 @@ a { color: var(--primary-colour) }
   font-size: 0.707em;
 }
 
-/* overlay test zone */
+/* Work Overlay */
 
 .work-image {
   opacity: 1;
@@ -191,3 +188,26 @@ a { color: var(--primary-colour) }
 .work-image-container:hover .work-image-overlay {
   opacity: 1;
 }
+
+.btn-overlay {
+  background-color: var(--primary-colour);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-overlay:hover {
+  background-color: var(--dark-primary-colour);
+  border-bottom: none;
+  color: #fff;
+}
+
+.work-icon {
+  font-size: 1em;
+}
+
+.modal-title {
+  color: var(--dark-primary-colour);
+  text-align: center;
+}
+
+.ekko-lightbox-nav-overlay a { color: var(--primary-colour) }

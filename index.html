@@ -13,6 +13,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Muli|Nunito+Sans" rel="stylesheet">
 
+    <!-- ekko-lightbox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" integrity="sha256-rsCgM5jt7IFLYMFFsDe3ZDSnL1fX0IKF5DOQP9q11kQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.min.css" integrity="sha256-8aNQFtmxcOMVoOhLD4mrHqaKC2Ui++LmlQsoKTqxwIE=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.min.css.map" />
+
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -84,7 +89,7 @@
       </div>
       <div class="row">
         <div class="col-md-2 col-md-offset-5 text-center">
-          <a class="btn btn-default download-cv" href="docs/EfstathiosStivarosCV.pdf" target="_blank"><i class="material-icons dl-cv-icon">file_download</i> Download CV</a>
+          <a class="btn btn-default download-cv" href="docs/EfstathiosStivarosCV.pdf" target="_blank"><i class="material-icons vert-align-icon">file_download</i> Download CV</a>
         </div>
     </section>
     <section class="work container-fluid">
@@ -118,9 +123,15 @@
                   <p>Logging in as admin provides access to increased permissions, such as product editing and user management.</p>
                 </div>
                 <div class="col-md-4 work-image-container">
-                  <img class="img-responsive work-image" src="http://via.placeholder.com/600x300">
+                  <img class="img-responsive img-thumbnail work-image" src="img/seo-store-main.jpg">
                   <div class="work-image-overlay">
-                    Text work-image-overlay
+                    <div class="btn-group"><a href="https://github.com/Stivaros/CFApp" class="btn btn-overlay"><i class="material-icons vert-align-icon work-icon">code</i></a> <a href="https://stivaroscfapp.herokuapp.com" class="btn btn-overlay"><i class="material-icons vert-align-icon work-icon">link</i></a> <a a href="img/seo-store-main.jpg" data-title="Product Index Page 1/7" data-toggle="lightbox" data-gallery="seo-store-images" class="btn btn-overlay"><i class="material-icons vert-align-icon work-icon">photo_library</i></a></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-product.jpg" data-title="Product Page 2/7"></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-product-admin.jpg" data-title="Product Page - Admin View 3/7"></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-login.jpg" data-title="Login Panel 4/7"></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-product-edit.jpg" data-title="Unauthorised User Error 5/7"></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-product-edit-admin.jpg" data-title="Product Edit - Authorised User 6/7"></div>
+                      <div data-toggle="lightbox" data-gallery="seo-store-images" data-remote="img/seo-store-actioncable.gif" data-title="ActionCable Notification Example 7/7"></div>
                   </div>
                 </div>
               </div>
@@ -139,5 +150,11 @@
     <script type="text/javascript" src="js/pronounceName.js"></script>
     <!-- Text Animation -->
     <script type="text/javascript" src="js/textAnimate.js"></script>
+    <!-- ekko-lightbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js" integrity="sha256-ATNbEkamp1Wir/Ku1zX6Es+mKR7h08bnn8IRosp26Jo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js.map"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.min.js" integrity="sha256-JRmDZdHmGahZjoYtQActan4Leibhl+7jZOETtJT3DCY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.min.js.map"></script>
+    <script src="js/ekkoLightbox.js"></script>
   </body>
 </html>
