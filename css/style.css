@@ -5,11 +5,6 @@
 
 /* Variables, Bootstrap Overwrites & Globals */
 
-* { 
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 16px;
-}
-
 :root {
   --dark-primary-colour: #689f38;
   --primary-colour: #8bc34a;
@@ -20,9 +15,17 @@
   --divider: #BDBDBD;
 }
 
+body { 
+  color: var(--primary-text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
+
 .btn {
   font-size: 1em;
 }
+
+.vert-align-icon { vertical-align: middle }
 
 /* Typography */
 
@@ -40,6 +43,8 @@ h2 { font-size: 2.827em; }
 h3 { font-size: 1.999em; }
 
 h4 { font-size: 1.414em; }
+
+a { color: var(--primary-colour) }
 
 /* Nav */
 
@@ -75,7 +80,9 @@ h4 { font-size: 1.414em; }
   color: var(--primary-text);
 }
 
-.navbar-default .navbar-nav>li>a:hover { background-color: var(--light-primary-colour); }
+.navbar-default .navbar-nav>li>a:hover {
+  background-color: var(--light-primary-colour);
+}
 
 .material-icons.md-16 {
   color: var(--primary-colour);
@@ -103,7 +110,7 @@ h4 { font-size: 1.414em; }
 
 .animate-wrap {
   font-family: 'Monserrat', sans-serif;
-  font-size: 2.827em;
+  font-size: 1em;
 }
 
 .about p { color: #fff; }
@@ -113,26 +120,94 @@ h4 { font-size: 1.414em; }
   font-size: 1em;
  }
 
-.panel {
+.about .panel {
   background-color: var(--dark-primary-colour);
 }
 
-.panel .panel-heading {
+.about .panel .panel-heading {
   background-color: var(--dark-primary-colour);
   color: var(--light-primary-colour);
   margin-bottom: 0;
 }
 
-.panel .panel-body {
+.about .panel .panel-body {
   color: #fff;
 }
 
 .download-cv {
   color: var(--secondary-text);
   font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
 }
 
-.dl-cv-icon {
-  vertical-align: middle;
+/* Work Section */
+
+.work p a:hover {
+  border-bottom: 2px solid var(--dark-primary-colour);
+  color: var(--dark-primary-colour);
+  text-decoration: none;
 }
+
+.work h2 {
+  color: var(--dark-primary-colour);
+  font-family: 'Muli', sans-serif;
+  margin-bottom: 50px;
+}
+
+.work h3 { color: var(--dark-primary-colour) }
+
+.project-skills {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.707em;
+}
+
+/* Work Overlay */
+
+.work-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.work-image-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.work-image-container:hover .work-image {
+  opacity: 0.3;
+}
+
+.work-image-container:hover .work-image-overlay {
+  opacity: 1;
+}
+
+.btn-overlay {
+  background-color: var(--primary-colour);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-overlay:hover {
+  background-color: var(--dark-primary-colour);
+  border-bottom: none;
+  color: #fff;
+}
+
+.work-icon {
+  font-size: 1em;
+}
+
+.modal-title {
+  color: var(--dark-primary-colour);
+  text-align: center;
+}
+
+.ekko-lightbox-nav-overlay a { color: var(--primary-colour) }
