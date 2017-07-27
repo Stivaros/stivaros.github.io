@@ -141,6 +141,8 @@ a { color: var(--primary-colour) }
 
 /* Work Section */
 
+.work { padding-bottom: 50px }
+
 .work p a:hover {
   border-bottom: 2px solid var(--dark-primary-colour);
   color: var(--dark-primary-colour);
@@ -211,3 +213,54 @@ a { color: var(--primary-colour) }
 }
 
 .ekko-lightbox-nav-overlay a { color: var(--primary-colour) }
+
+/* Contact Section */
+
+.contact {
+  background-color: var(--primary-colour);
+}
+
+.contact h2 {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.contact-div {
+  padding-bottom: 25px;
+}
+
+label {
+  color: var(--light-primary-colour);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+.form-control {
+  color: #fff;
+  box-shadow: inset 0 -1px 0 var(--light-primary-colour);
+  -webkit-box-shadow: inset 0 -1px 0 var(--light-primary-colour);
+}
+
+textarea {
+  background-color: #fff;
+}
+
+textarea.form-control:focus, input:focus, [type*=e].form-control:focus {
+  color: #fff;
+  box-shadow: inset 0 -1px 0 var(--dark-primary-colour);
+  -webkit-box-shadow: inset 0 -1px 0 var(--dark-primary-colour);
+}
+
+.form-control::-moz-placeholder { color: #fff } 
+.form-control:-ms-input-placeholder { color: #fff }
+.form-control::-webkit-input-placeholder { color: #fff }
+
+.contact button {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+
+.submit-icon { 
+  margin-bottom: 3px;
+  font-size: 22px;
+}
