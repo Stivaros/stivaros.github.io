@@ -2,11 +2,8 @@
 * https://stivaros.com
 * Built upon Bootstrap and Paper, from Bootswatch
 */
-/* Variables & Globals */
 
-* {
-  font-size: 16px;
-}
+/* Variables, Bootstrap Overwrites & Globals */
 
 :root {
   --dark-primary-colour: #689f38;
@@ -16,14 +13,44 @@
   --secondary-text: #757575;
   --accent: #9e9e9e;
   --divider: #BDBDBD;
-
 }
+
+body { 
+  color: var(--primary-text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
+
+.btn {
+  font-size: 1em;
+}
+
+.vert-align-icon { vertical-align: middle }
+
+/* Typography */
+
+h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Muli', sans-serif;
+  font-size: 3.998em;
+}
+
+h2 { font-size: 2.827em; }
+
+h3 { font-size: 1.999em; }
+
+h4 { font-size: 1.414em; }
+
+a { color: var(--primary-colour) }
 
 /* Nav */
 
 .navbar {
   border-bottom: 1px solid var(--divider);
-  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0;
   min-height: 40px;
   -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -35,6 +62,7 @@
 }
 
 .navbar-brand, .navbar-nav>li>a {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   height: 39px;
 }
@@ -52,7 +80,9 @@
   color: var(--primary-text);
 }
 
-.navbar-default .navbar-nav>li>a:hover { background-color: var(--light-primary-colour); }
+.navbar-default .navbar-nav>li>a:hover {
+  background-color: var(--light-primary-colour);
+}
 
 .material-icons.md-16 {
   color: var(--primary-colour);
@@ -62,3 +92,187 @@
 .material-icons.md-16:hover {
   color: var(--dark-primary-colour)
 }
+
+/* About */
+
+.about {
+  background-color: var(--primary-colour);
+  padding-bottom: 5%;
+}
+
+.about h1 {
+  color: #fff;
+}
+
+.about h2, .about h3 {
+  color: var(--light-primary-colour);
+}
+
+.animate-wrap {
+  font-family: 'Monserrat', sans-serif;
+  font-size: 1em;
+}
+
+.about p { color: #fff; }
+
+.main-skill {
+  color: var(--secondary-text);
+  font-size: 1em;
+ }
+
+.about .panel {
+  background-color: var(--dark-primary-colour);
+}
+
+.about .panel .panel-heading {
+  background-color: var(--dark-primary-colour);
+  color: var(--light-primary-colour);
+  margin-bottom: 0;
+}
+
+.about .panel .panel-body {
+  color: #fff;
+}
+
+.download-cv {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Work Section */
+
+.work { padding-bottom: 50px }
+
+.work p a:hover {
+  border-bottom: 2px solid var(--dark-primary-colour);
+  color: var(--dark-primary-colour);
+  text-decoration: none;
+}
+
+.work h2 {
+  color: var(--dark-primary-colour);
+  font-family: 'Muli', sans-serif;
+  margin-bottom: 50px;
+}
+
+.work h3 { color: var(--dark-primary-colour) }
+
+.project-skills {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.707em;
+}
+
+/* Work Overlay */
+
+.work-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.work-image-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.work-image-container:hover .work-image {
+  opacity: 0.3;
+}
+
+.work-image-container:hover .work-image-overlay {
+  opacity: 1;
+}
+
+.btn-overlay {
+  background-color: var(--primary-colour);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-overlay:hover {
+  background-color: var(--dark-primary-colour);
+  border-bottom: none;
+  color: #fff;
+}
+
+.work-icon {
+  font-size: 1em;
+}
+
+.modal-title {
+  color: var(--dark-primary-colour);
+  text-align: center;
+}
+
+.ekko-lightbox-nav-overlay a { color: var(--primary-colour) }
+
+/* Contact Section */
+
+.contact {
+  background-color: var(--primary-colour);
+}
+
+.contact h2 {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.contact-div {
+  padding-bottom: 25px;
+}
+
+label {
+  color: var(--light-primary-colour);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+.form-control {
+  color: #fff;
+  box-shadow: inset 0 -1px 0 var(--light-primary-colour);
+  -webkit-box-shadow: inset 0 -1px 0 var(--light-primary-colour);
+}
+
+textarea {
+  background-color: #fff;
+}
+
+textarea.form-control:focus, input:focus, [type*=e].form-control:focus {
+  color: #fff;
+  box-shadow: inset 0 -1px 0 var(--dark-primary-colour);
+  -webkit-box-shadow: inset 0 -1px 0 var(--dark-primary-colour);
+}
+
+.form-control::-moz-placeholder { color: #fff } 
+.form-control:-ms-input-placeholder { color: #fff }
+.form-control::-webkit-input-placeholder { color: #fff }
+
+.contact button {
+  color: var(--secondary-text);
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+
+.submit-icon { 
+  margin-bottom: 3px;
+  font-size: 22px;
+}
+
+/* Footer */
+
+footer {
+  color: var(--dark-primary-colour);
+  padding-top: 11.5px;
+}
+
+footer a { color: var(--dark-primary-colour) }
+footer a:hover { color: var(--primary-colour) }
+
+.fa-red { color: red }
