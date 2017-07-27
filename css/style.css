@@ -264,3 +264,15 @@ textarea.form-control:focus, input:focus, [type*=e].form-control:focus {
   margin-bottom: 3px;
   font-size: 22px;
 }
+
+/* Footer */
+
+footer {
+  color: var(--dark-primary-colour);
+  padding-top: 11.5px;
+}
+
+footer a { color: var(--dark-primary-colour) }
+footer a:hover { color: var(--primary-colour) }
+
+.fa-red { color: red }
