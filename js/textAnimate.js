@@ -56,4 +56,3 @@ window.onload = function() {
 };
 
 // Source and credit: https://codepen.io/gschier/pen/jkivt
-// TODO: Minify JS

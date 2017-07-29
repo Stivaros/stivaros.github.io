@@ -5,5 +5,3 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
     }
     );
 });
-
-// TODO: Minify JS

@@ -10,5 +10,3 @@
       return false;
     }
   });
-  
-// TODO: Minify JS
