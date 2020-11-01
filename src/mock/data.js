@@ -2,26 +2,29 @@ import { nanoid } from 'nanoid';
 
 // HEAD DATA
 export const headData = {
-  title: '', // e.g: 'Name | Developer'
-  lang: '', // e.g: en, es, fr, jp
-  description: '', // e.g: Welcome to my website
+  title: 'Efstathios Stivaros | Ruby on Rails Developer from London', // e.g: 'Name | Developer'
+  lang: 'en-GB', // e.g: en, es, fr, jp
+  description: 'Portfolio for Efstathios Stivaros, a Ruby on Rails developer from London', // e.g: Welcome to my website
 };
 
 // HERO DATA
 export const heroData = {
-  title: '',
-  name: '',
-  subtitle: '',
-  cta: '',
+  title: 'Hello, I am',
+  name: 'Efstathios Stivaros',
+  subtitle: 'A Ruby on Rails Developer from London',
+  cta: 'About me',
 };
 
 // ABOUT DATA
 export const aboutData = {
   img: 'profile.jpg',
-  paragraphOne: '',
-  paragraphTwo: '',
-  paragraphThree: '',
-  resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
+  paragraphOne:
+    "I'm a full-stack Ruby on Rails developer who has had the fortune of working both in-house (at both technical and non-technical companies) and at a consultancy. I enjoy working in teams, no matter the size, whether that be in a leadership role or as a team member.",
+  paragraphTwo:
+    'My focus is on writing clean, well-tested code that will delight the business and my fellow developers alike. I follow the DevOps philosophy and enjoy learning all things tech.',
+  paragraphThree:
+    "Below are some of the projects I've worked on, across the stack. Deployment, governance/policy and architecture are difficult to showcase so please get in touch to discuss.",
+  curriculumVitae: 'https://s3.eu-west-2.amazonaws.com/stivaros.com/CV.pdf', // if no curriculumVitae, the button will not show up
 };
 
 // PROJECTS DATA
