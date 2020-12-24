@@ -30,7 +30,7 @@ const About = () => {
           <Col md={6} sm={12}>
             <Fade bottom duration={1000} delay={600} distance="30px">
               <div className="about-wrapper__image">
-                <AboutImg alt="profile picture" filename={img} />
+                <AboutImg alt="An image of me and a donkey, I am on the right" filename={img} />
               </div>
             </Fade>
           </Col>
