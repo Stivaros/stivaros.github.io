@@ -53,12 +53,14 @@ export const projectsData = [
   },
   {
     id: nanoid(),
-    img: 'project.jpg',
-    title: '',
-    info: '',
-    info2: '',
-    url: '',
-    repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up
+    img: 'code-placeholder.jpg',
+    title: 'Planned General Inspection Backend (Rail Industry)',
+    info:
+      'UK rail staff must regularly inspect stations to ensure high standards. The Planned General Inspection app digitises this process via a mobile app.',
+    info2:
+      'Working alongside the mobile team and leading a small backend team, work is mainly focussed on implementing features as per client request and performing general BaU activities.',
+    url: 'https://play.google.com/store/apps/details?id=com.transreport.pgi&hl=en_GB&gl=GB',
+    repo: '', // if no repo, the button will not show up
   },
 ];
 
