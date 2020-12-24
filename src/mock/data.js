@@ -42,12 +42,14 @@ export const projectsData = [
   },
   {
     id: nanoid(),
-    img: 'project.jpg',
-    title: '',
-    info: '',
-    info2: '',
+    img: 'code-placeholder.jpg',
+    title: 'In-house Logistics Platform',
+    info:
+      'This is a closed-source project. This application was an in-house, custom-built logistics platform for a business with tens of millions of pounds in revenue.',
+    info2:
+      'Work on the project consisted of writing new features, maintaining existing functionality, identifying & removing dead code, patching security vulnerabilities and fixing bugs & providing support.',
     url: '',
-    repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up
+    repo: '', // if no repo, the button will not show up
   },
   {
     id: nanoid(),
