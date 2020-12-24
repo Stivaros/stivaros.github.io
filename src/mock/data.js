@@ -98,22 +98,27 @@ export const footerData = {
     {
       id: nanoid(),
       name: 'twitter',
-      url: '',
+      url: 'https://twitter.com/eStivaros',
     },
     {
       id: nanoid(),
-      name: 'codepen',
-      url: '',
+      name: 'comment',
+      url: 'https://blog.stivaros.com/',
     },
     {
       id: nanoid(),
       name: 'linkedin',
-      url: '',
+      url: 'https://www.linkedin.com/in/estivaros/',
     },
     {
       id: nanoid(),
       name: 'github',
-      url: '',
+      url: 'https://github.com/stivaros',
+    },
+    {
+      id: nanoid(),
+      name: 'building',
+      url: 'https://ntscreative.co.uk/',
     },
   ],
 };
