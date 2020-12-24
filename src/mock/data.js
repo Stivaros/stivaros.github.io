@@ -62,6 +62,17 @@ export const projectsData = [
     url: 'https://play.google.com/store/apps/details?id=com.transreport.pgi&hl=en_GB&gl=GB',
     repo: '', // if no repo, the button will not show up
   },
+  {
+    id: nanoid(),
+    img: 'code-placeholder.jpg',
+    title: 'Ruby and Rails Upgrades (Various)',
+    info:
+      'Upgrading relies on a test suite to highlight regressions, therefore most upgrades are primarily test-writing projects. Projects that have neglected to upgrade tend to have also neglected testing.',
+    info2:
+      'Multiple upgrade projects have been conquered with this technique, including Ruby 2.6 -> 2.7 and major Rails upgrades. Other important migrations, such as paperclip/carrierwave -> ActiveStorage and AWS S3 -> Azure Blob Store have also been completed.',
+    url: '',
+    repo: '', // if no repo, the button will not show up
+  },
 ];
 
 // CONTACT DATA
