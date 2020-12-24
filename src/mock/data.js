@@ -87,9 +87,9 @@ export const projectsData = [
 
 // CONTACT DATA
 export const contactData = {
-  cta: '',
+  cta: 'Would you like to work together? Want to run a project idea past me?',
   btn: '',
-  email: '',
+  email: 'efstathios@stivaros.com',
 };
 
 // FOOTER DATA
