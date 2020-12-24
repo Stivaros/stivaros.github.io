@@ -31,12 +31,14 @@ export const aboutData = {
 export const projectsData = [
   {
     id: nanoid(),
-    img: 'project.jpg',
-    title: '',
-    info: '',
-    info2: '',
-    url: '',
-    repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up
+    img: 'et3.webp',
+    title: 'HMCTS Employment Tribunals - ET3 Form',
+    info:
+      "ET3 is the form an employer files in response to a claimant's ET1. The service had previously been digitised in PHP. Using the existing service I rewrote the service in RoR.",
+    info2:
+      'The service is fully tested (including docker-compose setup for an s3/blob store service locally), observes the GOVUK design principles and uses slim as its templating language.',
+    url: 'https://tribunal-response.employmenttribunals.service.gov.uk/',
+    repo: 'https://github.com/hmcts/et3', // if no repo, the button will not show up
   },
   {
     id: nanoid(),
