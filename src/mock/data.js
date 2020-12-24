@@ -73,6 +73,16 @@ export const projectsData = [
     url: '',
     repo: '', // if no repo, the button will not show up
   },
+  {
+    id: nanoid(),
+    img: 'blog.webp',
+    title: 'Personal Development Blog',
+    info:
+      'This presented an opportunity to work with a project other than Ruby on Rails. Built using Gatsby (which is an SSG for react) and deployed on Netflix, this builds a static blog site from markdown entries.',
+    info2: '',
+    url: 'https://blog.stivaros.com/',
+    repo: 'https://github.com/Stivaros/blog', // if no repo, the button will not show up
+  },
 ];
 
 // CONTACT DATA
