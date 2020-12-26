@@ -6,14 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/main.scss';
 
 export default () => {
-  const { title, lang, description } = headData;
+  const { title, docLang, description } = headData;
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>{title || 'Gatsby Simplefolio'}</title>
-        <html lang={lang || 'en'} />
+        <html lang={docLang || 'en'} />
         <meta name="description" content={description || 'Gatsby Simplefolio'} />
       </Helmet>
       <App />

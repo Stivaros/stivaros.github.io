@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 // HEAD DATA
 export const headData = {
   title: 'Efstathios Stivaros | Ruby on Rails Developer from London', // e.g: 'Name | Developer'
-  lang: 'en-GB', // e.g: en, es, fr, jp
+  docLang: 'en-GB', // e.g: en, es, fr, jp
   description: 'Portfolio for Efstathios Stivaros, a Ruby on Rails developer from London', // e.g: Welcome to my website
 };
 
@@ -13,6 +13,7 @@ export const heroData = {
   name: 'Efstathios Stivaros',
   subtitle: 'A Ruby on Rails Developer from London',
   cta: 'About me',
+  contact: 'Contact me',
 };
 
 // ABOUT DATA

@@ -9,14 +9,14 @@ import { headData } from '../mock/data';
 import '../style/main.scss';
 
 export default () => {
-  const { lang } = headData;
+  const { docLang } = headData;
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Page not found</title>
-        <html lang={lang || 'en'} />
+        <html lang={docLang || 'en'} />
         <meta name="description" content="Page not found" />
       </Helmet>
       <section id="hero" className="jumbotron">
