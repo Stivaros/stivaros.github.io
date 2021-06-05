@@ -48,18 +48,4 @@ export default {
 .icon-container {
   @apply flex flex-wrap justify-center items-center gap-4;
 }
-
-a.footer-icon {
-  box-shadow: 0px -0.25rem 0px theme('colors.green.300') inset;
-  @apply border-b-2 border-green-300 px-2 pb-1;
-  @apply transition-all duration-200 ease-in;
-
-  svg {
-    @apply mt-4;
-  }
-
-  &:hover {
-    box-shadow: 0px -40px 0px theme('colors.green.100') inset;
-  }
-}
 </style>
