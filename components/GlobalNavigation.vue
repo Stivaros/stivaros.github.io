@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: Use the @apply technique to tidy up CSS classes -->
   <nav class="nav absolute top-0 shadow-sm h-auto w-full">
     <button
       class="inline-block md:hidden w-8 h-8 text-green-700 p-1 m-1 rounded border border-green-700 float-right focus:ring-2 focus:ring-green-300"
@@ -26,30 +25,10 @@
       :class="isOpen ? 'block' : 'hidden'"
       class="flex flex-col md:flex-row leading-6 md:space-x-4 space-y-1 md:space-y-0 pl-1 py-1 md:py-3 md:px-0 md:block w-1/3 md:w-full"
     >
-      <a
-        href="#"
-        class="bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded"
-      >
-        Home
-      </a>
-      <a
-        href="#"
-        class="bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded"
-      >
-        About
-      </a>
-      <a
-        href="#"
-        class="bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded"
-      >
-        Projects
-      </a>
-      <a
-        href="#"
-        class="bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded"
-      >
-        Contact
-      </a>
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Projects</a>
+      <a href="#" class="nav-link">Contact</a>
     </div>
   </nav>
 </template>
@@ -63,3 +42,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+@layer components {
+  .nav-link {
+    @apply bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded;
+  }
+}
+</style>
