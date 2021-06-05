@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="nav top-0 shadow-sm h-auto w-full text-center mb-4 flex flex-row-reverse justify-between"
+    class="nav top-0 shadow-sm h-auto w-full text-center flex flex-row-reverse justify-between"
   >
     <button
       class="inline-block md:hidden w-8 h-8 text-green-700 p-1 m-1 rounded border border-green-700 focus:ring-2 focus:ring-green-300"

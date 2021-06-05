@@ -1,0 +1,7 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-green-900 font-bold text-6xl;
+  }
+}
