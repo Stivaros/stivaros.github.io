@@ -30,7 +30,7 @@ export default {}
 <style lang="scss" scoped>
 @layer components {
   .homepage-container {
-    @apply flex flex-col lg:flex-row gap-8 h-screen;
+    @apply flex flex-col lg:flex-row gap-8 min-h-screen;
   }
 
   p.px-6 {
