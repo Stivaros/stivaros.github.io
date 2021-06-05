@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="homepage-container">
     <section class="lg:w-3/5 flex justify-center items-center">
       <article>
         <h1 class="px-6 pt-8">Hello, I am Efstathios Stivaros</h1>
@@ -29,11 +29,11 @@ export default {}
 
 <style lang="scss" scoped>
 @layer components {
-  main {
+  .homepage-container {
     @apply flex flex-col lg:flex-row gap-8 h-screen;
   }
 
-  p {
+  p.px-6 {
     @apply text-green-700 font-semibold text-2xl;
   }
 }
