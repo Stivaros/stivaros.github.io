@@ -25,10 +25,12 @@
       :class="isOpen ? 'block' : 'hidden'"
       class="flex flex-col md:flex-row leading-6 md:space-x-4 space-y-1 md:space-y-0 pl-1 py-1 md:py-3 md:px-0 md:block w-1/3 md:w-full"
     >
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">About</a>
-      <a href="#" class="nav-link">Projects</a>
-      <a href="#" class="nav-link">Contact</a>
+      <nuxt-link :to="{ name: 'index' }" class="nav-link">Home</nuxt-link>
+      <nuxt-link :to="{ name: 'about' }" class="nav-link">About</nuxt-link>
+      <nuxt-link :to="{ name: 'projects' }" class="nav-link">
+        Projects
+      </nuxt-link>
+      <nuxt-link :to="{ name: 'contact' }" class="nav-link">Contact</nuxt-link>
     </div>
   </nav>
 </template>
