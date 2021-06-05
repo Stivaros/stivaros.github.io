@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="nav top-0 shadow-sm h-auto w-full text-center flex flex-row-reverse justify-between"
-  >
+  <nav class="nav shadow-sm text-center flex flex-row-reverse justify-between">
     <button
       class="inline-block md:hidden w-8 h-8 text-green-700 p-1 m-1 rounded border border-green-700 focus:ring-2 focus:ring-green-300"
       @click="isOpen = !isOpen"
@@ -50,7 +48,16 @@ export default {
 <style lang="scss" scoped>
 @layer components {
   .nav-link {
-    @apply bg-green-800 hover:bg-green-700 focus:ring-2 focus:ring-green-300 text-white px-4 py-1 rounded;
+    @apply bg-green-800 border-2 border-transparent text-xl text-white px-4 py-2 rounded;
+    @apply transition-all duration-200 ease-in;
+
+    &:hover {
+      @apply bg-green-100 border-green-700 text-green-700;
+    }
+
+    &:focus {
+      @apply ring-2 ring-green-300;
+    }
   }
 }
 </style>
