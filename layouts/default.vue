@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <GlobalNavigation />
+    <Nuxt />
   </div>
 </template>
 
@@ -14,4 +15,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@layer components {
+  .container {
+    @apply mx-auto max-w-none min-h-screen;
+  }
+}
+</style>

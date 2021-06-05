@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav absolute top-0 shadow-sm h-auto w-full">
+  <nav class="nav top-0 shadow-sm h-auto w-full">
     <button
       class="inline-block md:hidden w-8 h-8 text-green-700 p-1 m-1 rounded border border-green-700 float-right focus:ring-2 focus:ring-green-300"
       @click="isOpen = !isOpen"
