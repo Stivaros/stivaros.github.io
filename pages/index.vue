@@ -38,7 +38,7 @@ export default {}
   }
 }
 .btn-container {
-  @apply mt-4 flex flex-col md:flex-row gap-4 px-6;
+  @apply mt-4 flex flex-wrap flex-row gap-4 px-6;
 }
 .profile-img {
   height: 100%;

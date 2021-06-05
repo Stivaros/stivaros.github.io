@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss">
 .icon-container {
-  @apply flex items-center gap-4;
+  @apply flex flex-wrap justify-center items-center gap-4;
 }
 
 a.footer-icon {
