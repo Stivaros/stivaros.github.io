@@ -30,13 +30,13 @@
           <li>RESTful APIs and SOAP (JSON and XML)</li>
           <li>Sinatra</li>
           <li>TDD with RSpec, Capybara (and Cuprite), FactoryBot and more</li>
+          <li>HTML 4.1 onwards</li>
           <li>Rails templating with ERB, HAML and Slim</li>
           <li>Ruby 2.4 onwards</li>
           <li>Stimulus.js</li>
           <li>Basic React (including Gatsby)</li>
           <li>Basic Vue.js 2 (including Nuxt.js; CSR, SSG and SSR)</li>
-          <li>HTML 4.1 onwards</li>
-          <li>CSS 2 onwards</li>
+          <li>Sass/SCSS and CSS 2 onwards</li>
           <li>Architecture and software patterns for Rails projects</li>
           <li>Basic cloud engineering</li>
         </ul>
