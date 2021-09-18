@@ -39,6 +39,7 @@
           <li>Sass/SCSS and CSS 2 onwards</li>
           <li>Architecture and software patterns for Rails projects</li>
           <li>Basic cloud engineering</li>
+          <li>Docker and docker-compose for production and development</li>
         </ul>
       </article>
     </section>
