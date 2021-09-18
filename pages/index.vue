@@ -1,5 +1,5 @@
 <template>
-  <main class="homepage-container">
+  <main class="split-container">
     <section class="lg:w-3/5 flex justify-center items-center">
       <article>
         <h1 class="px-6 pt-8">Hello, I am Efstathios Stivaros</h1>
@@ -15,9 +15,7 @@
         </div>
       </article>
     </section>
-    <aside
-      class="lg:w-2/5 bg-green-200 border-t-8 lg:border-t-0 lg:border-l-8 border-green-700"
-    >
+    <aside class="right-panel">
       <img class="profile-img" src="~/assets/profile.jpg" alt="Two donkeys" />
     </aside>
   </main>
@@ -29,10 +27,6 @@ export default {}
 
 <style lang="scss" scoped>
 @layer components {
-  .homepage-container {
-    @apply flex flex-col lg:flex-row gap-8 min-h-screen;
-  }
-
   p.px-6 {
     @apply text-green-700 font-semibold text-2xl;
   }
