@@ -1,0 +1,83 @@
+[
+  {
+    "title": "HMCTS Employment Tribunals - ET3 Form",
+    "description": "ET3 is the form an employer files in response to a claimant's ET1. The service had previously been digitised in PHP. Using the existing service I rewrote the service in RoR.",
+    "tech": ["Ruby", "Ruby on Rails", "slim", "AWS", "Azure", "RSpec", "docker-compose", "I18n"],
+    "links": {
+      "live": "https://tribunal-response.employmenttribunals.service.gov.uk/",
+      "source": "https://github.com/hmcts/et3"
+    }
+  },
+  {
+    "title": "In-house Logistics Platform",
+    "description": "This is a closed-source project. This application was an in-house, custom-built logistics platform for a business with tens of millions of pounds in revenue.",
+    "tech": ["Ruby", "Ruby on Rails", "Rails Engines", "ERB", "Heroku", "RSpec", "docker-compose"],
+    "links": {
+      "live": "",
+      "source": ""
+    }
+  },
+  {
+    "title": "Planned General Inspection Backend (Rail Industry)",
+    "description": "UK rail staff must regularly inspect stations to ensure high standards. The Planned General Inspection app digitises this process via a mobile app. It interfaces with third party maintenance systems.",
+    "tech": ["Ruby", "Ruby on Rails", "JSON", "SOAP", "AWS", "RSpec", "docker-compose"],
+    "links": {
+      "live": "https://play.google.com/store/apps/details?id=com.transreport.pgi&hl=en_GB&gl=GB",
+      "source": ""
+    }
+  },
+    {
+    "title": "Personal Development Blog",
+    "description": "This presented an opportunity to work with a project other than Ruby on Rails. Built using Gatsby (which is an SSG for react) and deployed on Netflix, this builds a static blog site from markdown entries.",
+    "tech": ["React", "Gatsby", "SSG"],
+    "links": {
+      "live": "https://blog.stivaros.com/",
+      "source": "https://github.com/Stivaros/blog"
+    }
+  },
+  {
+    "title": "Personal Portfolio",
+    "description": "This website is coded from scratch as an opportunity to practice using Vue.js and Nuxt.js. It uses a projects.json file to load in content to the Projects page.",
+    "tech": ["Vue.js", "Nuxt.js", "SSG"],
+    "links": {
+      "live": "https://stivaros.com/",
+      "source": "https://github.com/Stivaros/stivaros.github.io"
+    }
+  },
+  {
+    "title": "SQR (Rail Industry)",
+    "description": "This app provides a dashboard for station and fleet managers to view and control defects raised by mystery shoppers. The system contains a number of external interfaces to supplier maintenance systems.",
+    "tech": ["Ruby", "Ruby on Rails", "JSON", "SOAP", "Vue.js", "AWS", "RSpec", "docker-compose"],
+    "links": {
+      "live": "",
+      "source": ""
+    }
+  },
+  {
+    "title": "Ruby and Rails Upgrades (Various)",
+    "description": "Upgrading relies on a test suite to highlight regressions, therefore most upgrades are primarily test-writing projects. Projects that have neglected to upgrade tend to have also neglected testing.",
+    "tech": ["Ruby", "Ruby on Rails", "AWS", "Azure", "RSpec"],
+    "links": {
+      "live": "",
+      "source": ""
+    }
+  },
+  {
+    "title": "Internal Time Tracking Tool",
+    "description": "Primarily in a mentoring capacity, oversaw development of an internal tool and enabled a junior developer to grow into their first role in the team.",
+    "tech": ["Ruby", "Ruby on Rails", "AWS", "RSpec", "Stimulus.js", "ERB"],
+    "links": {
+      "live": "",
+      "source": ""
+    }
+  },
+  {
+    "title": "Middleware API",
+    "description": "A small Sinatra project to connect a client-side rendered frontend to a third party API. This app was necessary to protect API keys from prying eyes.",
+    "tech": ["Ruby", "Sinatra", "AWS", "RSpec"],
+    "links": {
+      "live": "",
+      "source": ""
+    }
+  }
+]
