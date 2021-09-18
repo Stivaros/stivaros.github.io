@@ -27,6 +27,9 @@
         <p class="h1">My Skills</p>
         <ul class="text-lg list-disc list-inside">
           <li>Ruby on Rails 5.2 through 6.1 (with a keen interest in 7)</li>
+          <li>RESTful APIs and SOAP (JSON and XML)</li>
+          <li>Sinatra</li>
+          <li>TDD with RSpec, Capybara (and Cuprite), FactoryBot and more</li>
           <li>Rails templating with ERB, HAML and Slim</li>
           <li>Ruby 2.4 onwards</li>
           <li>Stimulus.js</li>
