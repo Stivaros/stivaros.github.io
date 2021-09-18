@@ -15,10 +15,10 @@
         <p>
           My focus is on writing clean, well-tested code that will delight the
           business and my fellow developers alike. I follow the DevOps
-          philosophy and enjoy learning all things tech. Accompanying, you will
-          find some of the projects I've worked on, across the stack.
-          Deployment, governance/policy and architecture are difficult to
-          showcase so please get in touch to discuss.
+          philosophy and enjoy learning all things tech. Above, you will find
+          some of the projects I've worked on, across the stack. Deployment,
+          governance/policy and architecture are difficult to showcase so please
+          get in touch to discuss.
         </p>
       </article>
     </section>
