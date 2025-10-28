@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+        working-directory: ai-portfolio
+      - run: npm run build
+        working-directory: ai-portfolio
+      - name: Axe accessibility check (static)
+        run: npx @axe-core/cli --stdout --exit 0 --dir dist
+        working-directory: ai-portfolio
+      - name: Lighthouse CI (static)
+        run: |
+          npx http-server dist -p 8080 &
+          npx lighthouse http://localhost:8080 --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=./lh.json
+          node -e "const r=require('fs').readFileSync('lh.json','utf8');const j=JSON.parse(r);const s=j.categories;const ok=(s.performance.score>=0.9 && s.accessibility.score>=0.95 && s['best-practices'].score>=0.9 && s.seo.score>=0.9); if(!ok){console.error('Lighthouse thresholds not met', s); process.exit(1)}"
+        working-directory: ai-portfolio
