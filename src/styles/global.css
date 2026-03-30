@@ -7,8 +7,8 @@
   - Dark mode is the default (class="dark" on <html>).
   - Accent is emerald, used sparingly: link underlines, focus rings,
     section heading left-borders, active nav indicators.
-  - Light mode uses a pastel emerald-50 base; accent shifts to emerald-700
-    to maintain WCAG AA contrast on the pale background.
+  - Light mode is monochrome zinc with emerald-600 accent — mirrors the
+    dark mode philosophy exactly (one colour, everything else neutral).
 
   See docs/adr/0002-design-tokens.md for rationale.
 */
@@ -33,24 +33,24 @@
   when applied directly to an element.
 */
 @layer utilities {
-  /* Primary content text — zinc-100 dark, zinc-900 light */
+  /* Primary content text — zinc-100 dark / zinc-900 light */
   .text-body {
     @apply text-zinc-100 light:text-zinc-900;
   }
 
-  /* Secondary / metadata text — zinc-400 dark, zinc-600 light */
+  /* Secondary / metadata text — zinc-400 dark / zinc-500 light */
   .text-muted {
-    @apply text-zinc-400 light:text-zinc-600;
+    @apply text-zinc-400 light:text-zinc-500;
   }
 
-  /* Card or panel background — zinc-900 dark, white light */
+  /* Card or panel background — zinc-900 dark / white light */
   .bg-surface {
     @apply bg-zinc-900 light:bg-white;
   }
 
-  /* Subtle dividers and borders — zinc-800 dark, emerald-100 light */
+  /* Subtle dividers and borders — zinc-800 dark / zinc-200 light */
   .border-subtle {
-    @apply border-zinc-800 light:border-emerald-100;
+    @apply border-zinc-800 light:border-zinc-200;
   }
 }
 
@@ -63,7 +63,7 @@
   .card {
     @apply bg-zinc-900 border border-zinc-800 rounded
            hover:border-zinc-700 transition-colors duration-150
-           light:bg-white light:border-emerald-100 light:hover:border-emerald-200;
+           light:bg-white light:border-zinc-200 light:hover:border-zinc-300;
   }
 }
 
@@ -86,7 +86,7 @@
   }
 
   html.light body {
-    @apply bg-emerald-50 text-zinc-900;
+    @apply bg-zinc-50 text-zinc-900;
   }
 
   /* Brutalist link treatment — the primary emerald accent usage */
@@ -97,7 +97,7 @@
   }
 
   html.light a {
-    @apply decoration-emerald-700 hover:decoration-emerald-600;
+    @apply decoration-emerald-600 hover:decoration-emerald-700;
   }
 
   /* Focus ring */
@@ -106,7 +106,7 @@
   }
 
   html.light :focus-visible {
-    @apply ring-emerald-700 ring-offset-emerald-50;
+    @apply ring-emerald-600 ring-offset-zinc-50;
   }
 
   code {
@@ -114,6 +114,6 @@
   }
 
   html.light code {
-    @apply border-emerald-700;
+    @apply border-emerald-600;
   }
 }

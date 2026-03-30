@@ -168,9 +168,12 @@ Dark mode is the **default**. The `<html>` element carries `class="dark"` by def
 
 | Token | Dark value | Light value |
 |---|---|---|
-| Background | `zinc-950` | `emerald-50` |
+| Background | `zinc-950` | `zinc-50` |
+| Surface | `zinc-900` | `white` |
+| Border | `zinc-800` | `zinc-200` |
 | Body text | `zinc-100` | `zinc-900` |
-| Accent | `emerald-400` | `emerald-700` |
+| Muted text | `zinc-400` | `zinc-500` |
+| Accent | `emerald-400` | `emerald-600` |
 
 ### Accent Usage Rules
 

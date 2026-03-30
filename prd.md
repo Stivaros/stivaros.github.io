@@ -116,18 +116,20 @@ Both modes share the emerald hue family; luminosity inverts between them.
 | Text primary | `zinc-100` | #f4f4f5 |
 | Text muted | `zinc-400` | #a1a1aa |
 
-**Light mode (pastel)**
+**Light mode (monochrome zinc)**
 
 | Role | Token | Hex |
 |---|---|---|
-| Background | `emerald-50` | #ecfdf5 |
+| Background | `zinc-50` | #fafafa |
 | Surface | `white` | #ffffff |
-| Border | `emerald-100` | #d1fae5 |
-| Accent | `emerald-700` | #047857 |
+| Border | `zinc-200` | #e4e4e7 |
+| Border hover | `zinc-300` | #d4d4d8 |
+| Accent | `emerald-600` | #059669 |
+| Accent hover | `emerald-700` | #047857 |
 | Text primary | `zinc-900` | #18181b |
-| Text muted | `zinc-600` | #52525b |
+| Text muted | `zinc-500` | #71717a |
 
-The accent intentionally shifts luminosity (`emerald-400` → `emerald-700`) to maintain WCAG AA contrast on both background extremes while preserving hue coherence. Pastels are used exclusively as backgrounds, never for text or interactive elements.
+Light mode mirrors the dark mode philosophy exactly — monochrome neutral base, emerald as the single accent colour. The pastel approach was tried and rejected as insufficiently committed; a half-pastel reads as timid rather than considered.
 
 **Accent usage rules**: Emerald is a touch of colour, not a dominant presence. It is the signature detail of the design — used to create visual tension against an otherwise monochrome layout.
 
