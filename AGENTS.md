@@ -126,6 +126,40 @@ Playwright requires the production build. Do not run `test:e2e` without building
 
 ---
 
+## CI/CD
+
+Two GitHub Actions workflows live in `.github/workflows/`.
+
+### CI (`ci.yml`)
+
+Triggers on every push to any branch, and on pull requests targeting `master`.
+
+Three jobs run:
+
+- `typecheck` and `unit-test` run in parallel. `typecheck` runs `npm run typecheck` (astro check); `unit-test` runs `npm test` (vitest run) and must pass with zero failures.
+- `build` runs `npm run build` and depends on both `typecheck` and `unit-test` passing first.
+
+All jobs use Node 22 on `ubuntu-latest` and share an npm cache keyed on `package-lock.json`.
+
+Playwright E2E tests are not included in CI yet — they require a browser install step and will be added separately.
+
+### Deploy (`deploy.yml`)
+
+Triggers only when the CI workflow completes successfully on the `master` branch (via `workflow_run`). This means a deploy is never attempted unless all CI checks have passed.
+
+The job:
+1. Checks out the repo with full history (`fetch-depth: 0`).
+2. Installs dependencies and runs `npm run build` to produce `dist/`.
+3. Uploads `dist/` as a GitHub Pages artifact and deploys it using the official `actions/deploy-pages@v4` action.
+
+The `environment` is set to `github-pages` so the deployment URL is surfaced in the GitHub UI.
+
+### Custom Domain
+
+`public/CNAME` contains `stivaros.com`. Astro copies everything in `public/` to `dist/` verbatim during the build, so the custom domain is handled automatically — no extra workflow step is required.
+
+---
+
 ## Design System
 
 ### Colour Modes
