@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { formatDateForDisplay } from '@lib/date-formatter';
+
+const entries = await getCollection('dispatch');
+entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Dispatch — stivaros"
+  description="Technical notes, observations, and short essays."
+>
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold text-zinc-100 mb-2">Dispatch</h1>
+    <p class="text-zinc-400">Technical notes, observations, and short essays.</p>
+  </header>
+
+  {
+    entries.length === 0 ? (
+      <p class="text-zinc-400">No posts yet.</p>
+    ) : (
+      <ul class="space-y-6">
+        {entries.map((entry) => (
+          <li class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+            <time
+              datetime={entry.data.date.toISOString()}
+              class="text-sm text-zinc-400 shrink-0 tabular-nums"
+            >
+              {formatDateForDisplay(entry.data.date)}
+            </time>
+            <a
+              href={`/dispatch/${entry.slug}`}
+              class="text-zinc-100 underline decoration-emerald-400 decoration-2 underline-offset-4 hover:decoration-emerald-300 transition-colors duration-150"
+            >
+              {entry.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>

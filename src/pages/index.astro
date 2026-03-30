@@ -1,15 +1,41 @@
 ---
-// Placeholder home page — content and layout will be built in a later task.
+import BaseLayout from '@layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>stivaros.com</title>
-  </head>
-  <body>
-    <h1>stivaros.com</h1>
-    <p>Under construction.</p>
-  </body>
-</html>
+<BaseLayout
+  title="stivaros"
+  description="Engineer. Writing about systems, craft, and the work."
+>
+  <section class="mb-16">
+    <h1 class="text-4xl font-bold text-zinc-100 mb-3">stivaros</h1>
+    <p class="text-zinc-400 text-lg">
+      Engineer. Writing about systems, craft, and the work.
+    </p>
+  </section>
+
+  <section class="grid gap-6 sm:grid-cols-2">
+    <a
+      href="/dispatch"
+      class="block bg-zinc-900 border border-zinc-800 rounded px-6 py-5 hover:border-zinc-700 transition-colors duration-150 group"
+    >
+      <h2
+        class="text-xl font-semibold text-zinc-100 mb-2 underline decoration-emerald-400 decoration-2 underline-offset-4 group-hover:decoration-emerald-300 transition-colors duration-150"
+      >
+        Dispatch
+      </h2>
+      <p class="text-zinc-400 text-sm">Weekly technical notes.</p>
+    </a>
+
+    <a
+      href="/archive"
+      class="block bg-zinc-900 border border-zinc-800 rounded px-6 py-5 hover:border-zinc-700 transition-colors duration-150 group"
+    >
+      <h2
+        class="text-xl font-semibold text-zinc-100 mb-2 underline decoration-emerald-400 decoration-2 underline-offset-4 group-hover:decoration-emerald-300 transition-colors duration-150"
+      >
+        Archive
+      </h2>
+      <p class="text-zinc-400 text-sm">Posts from the old blog, preserved.</p>
+    </a>
+  </section>
+</BaseLayout>
