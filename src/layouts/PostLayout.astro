@@ -16,11 +16,8 @@ const formattedDate = formatDateForDisplay(date);
 <BaseLayout title={title} description={description}>
   <article>
     <header class="mb-8">
-      <h1 class="text-3xl font-bold text-zinc-100 mb-2 light:text-zinc-900">{title}</h1>
-      <time
-        datetime={date.toISOString()}
-        class="text-sm text-zinc-400 light:text-zinc-600"
-      >
+      <h1 class="text-3xl font-bold text-body mb-2">{title}</h1>
+      <time datetime={date.toISOString()} class="text-sm text-muted">
         {formattedDate}
       </time>
     </header>

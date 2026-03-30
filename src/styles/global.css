@@ -27,6 +27,46 @@
   --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 }
 
+/*
+  Semantic single-purpose colour aliases. Placed in utilities so they
+  sit above components in the cascade and can override component defaults
+  when applied directly to an element.
+*/
+@layer utilities {
+  /* Primary content text — zinc-100 dark, zinc-900 light */
+  .text-body {
+    @apply text-zinc-100 light:text-zinc-900;
+  }
+
+  /* Secondary / metadata text — zinc-400 dark, zinc-600 light */
+  .text-muted {
+    @apply text-zinc-400 light:text-zinc-600;
+  }
+
+  /* Card or panel background — zinc-900 dark, white light */
+  .bg-surface {
+    @apply bg-zinc-900 light:bg-white;
+  }
+
+  /* Subtle dividers and borders — zinc-800 dark, emerald-100 light */
+  .border-subtle {
+    @apply border-zinc-800 light:border-emerald-100;
+  }
+}
+
+/*
+  Multi-property UI components that compose the utilities above.
+  Individual utilities applied directly to an element override these.
+*/
+@layer components {
+  /* Clickable card — surface background, themed border, hover lift */
+  .card {
+    @apply bg-zinc-900 border border-zinc-800 rounded
+           hover:border-zinc-700 transition-colors duration-150
+           light:bg-white light:border-emerald-100 light:hover:border-emerald-200;
+  }
+}
+
 @layer base {
   :root {
     color-scheme: dark;

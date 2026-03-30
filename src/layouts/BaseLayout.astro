@@ -27,26 +27,14 @@ const { title, description } = Astro.props;
     </script>
   </head>
   <body class="min-h-screen">
-    <header class="bg-zinc-900 border-b border-zinc-800 light:bg-white light:border-emerald-100">
+    <header class="bg-surface border-b border-subtle">
       <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center gap-6">
-        <a
-          href="/"
-          class="no-underline font-semibold text-zinc-100 hover:text-zinc-100 light:text-zinc-900 light:hover:text-zinc-900"
-        >
+        <a href="/" class="no-underline font-semibold text-body">
           stivaros
         </a>
-        <a
-          href="/dispatch"
-          class="underline decoration-emerald-400 decoration-2 underline-offset-4 transition-colors duration-150 hover:decoration-emerald-300 light:decoration-emerald-700 light:hover:decoration-emerald-600"
-        >
-          dispatch
-        </a>
-        <a
-          href="/archive"
-          class="underline decoration-emerald-400 decoration-2 underline-offset-4 transition-colors duration-150 hover:decoration-emerald-300 light:decoration-emerald-700 light:hover:decoration-emerald-600"
-        >
-          archive
-        </a>
+        <!-- dispatch and archive links rely on the global a base style for underline treatment -->
+        <a href="/dispatch">dispatch</a>
+        <a href="/archive">archive</a>
         <div class="ml-auto">
           <ThemeToggle />
         </div>
@@ -57,8 +45,8 @@ const { title, description } = Astro.props;
       <slot />
     </main>
 
-    <footer class="border-t border-zinc-800 mt-16 light:border-emerald-100">
-      <div class="max-w-3xl mx-auto px-4 py-6 text-sm text-zinc-400 light:text-zinc-600">
+    <footer class="border-t border-subtle mt-16">
+      <div class="max-w-3xl mx-auto px-4 py-6 text-sm text-muted">
         &copy; {new Date().getFullYear()} stivaros
       </div>
     </footer>
