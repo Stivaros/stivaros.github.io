@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+  Theme tokens for stivaros.com.
+
+  Design system:
+  - Dark mode is the default (class="dark" on <html>).
+  - Accent is emerald, used sparingly: link underlines, focus rings,
+    section heading left-borders, active nav indicators.
+  - Light mode uses a pastel emerald-50 base; accent shifts to emerald-700
+    to maintain WCAG AA contrast on the pale background.
+
+  See docs/adr/0002-design-tokens.md for rationale.
+*/
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply bg-zinc-950 text-zinc-100 font-sans antialiased;
+  }
+
+  /* Pastel light mode */
+  html.light {
+    color-scheme: light;
+    @apply bg-emerald-50 text-zinc-900;
+  }
+
+  /* Brutalist link treatment — the primary emerald accent usage */
+  a {
+    @apply underline decoration-emerald-400 decoration-2 underline-offset-4
+           transition-colors duration-150
+           hover:decoration-emerald-300;
+  }
+
+  html.light a {
+    @apply decoration-emerald-700 hover:decoration-emerald-600;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-emerald-400 ring-offset-2 ring-offset-zinc-950;
+  }
+
+  html.light :focus-visible {
+    @apply ring-emerald-700 ring-offset-emerald-50;
+  }
+
+  code {
+    @apply font-mono text-sm border-l-2 border-emerald-400 pl-1;
+  }
+
+  html.light code {
+    @apply border-emerald-700;
+  }
+}
