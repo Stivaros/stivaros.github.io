@@ -13,6 +13,15 @@
   See docs/adr/0002-design-tokens.md for rationale.
 */
 
+/*
+  Class-based variant declarations.
+  These make `dark:` and `light:` utility prefixes respond to the
+  html.dark / html.light classes set by the ThemeToggle script,
+  rather than to prefers-color-scheme media queries.
+*/
+@variant dark (&:where(.dark, .dark *));
+@variant light (&:where(.light, .light *));
+
 @theme {
   --font-sans: ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;

@@ -1,6 +1,15 @@
 import { defineConfig } from 'vitest/config';
+import { resolve } from 'node:path';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@components': resolve(__dirname, 'src/components'),
+      '@layouts': resolve(__dirname, 'src/layouts'),
+      '@lib': resolve(__dirname, 'src/lib'),
+      '@styles': resolve(__dirname, 'src/styles'),
+    },
+  },
   test: {
     include: ['tests/unit/**/*.test.ts'],
     coverage: {
