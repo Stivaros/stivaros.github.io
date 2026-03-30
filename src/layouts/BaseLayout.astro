@@ -1,0 +1,54 @@
+---
+import '@styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 font-sans antialiased">
+    <header class="bg-zinc-900 border-b border-zinc-800">
+      <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center gap-6">
+        <a
+          href="/"
+          class="no-underline font-semibold text-zinc-100 hover:text-zinc-100"
+        >
+          stivaros
+        </a>
+        <a
+          href="/dispatch"
+          class="underline decoration-emerald-400 decoration-2 underline-offset-4 transition-colors duration-150 hover:decoration-emerald-300"
+        >
+          dispatch
+        </a>
+        <a
+          href="/archive"
+          class="underline decoration-emerald-400 decoration-2 underline-offset-4 transition-colors duration-150 hover:decoration-emerald-300"
+        >
+          archive
+        </a>
+      </nav>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-zinc-800 mt-16">
+      <div class="max-w-3xl mx-auto px-4 py-6 text-sm text-zinc-400">
+        &copy; {new Date().getFullYear()} stivaros
+      </div>
+    </footer>
+  </body>
+</html>
