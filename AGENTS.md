@@ -217,6 +217,8 @@ Short-form tech notes. Intended for frequent, lower-stakes writing. Schema: `tit
 
 Long-form case studies. Schema: `title`, `impact`, `technology`, optional `description`, optional `logicDiagram` (path to a diagram asset used by the Logic Toggle component).
 
+Systems posts must use the `.mdx` extension (not `.md`) to embed the `LogicToggle` component. Plain `.md` files cannot import Astro components. The `PostLayout` accepts an optional `date` prop — omit it for Systems posts that do not have a publication date.
+
 ### Archive (`src/content/archive/`)
 
 Migrated posts from the Gatsby blog at `../blog` (relative to this repo root). These are migrated via a script in `scripts/`. Frontmatter is normalised to match the Archive schema during migration. Do not edit archive posts by hand; re-run the migration script if the source changes.
