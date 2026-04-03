@@ -294,6 +294,7 @@ Current ADRs:
 |---|---|
 | 0001 | Astro over Gatsby (and Next.js) |
 | 0002 | Tailwind v4 (CSS-first) over v3 |
+| 0003 | Self-hosted JetBrains Mono via @fontsource-variable |
 
 When making a non-trivial architectural or design-system decision, write an ADR before (or alongside) the implementation. Use the format documented in the existing ADR files.
 
