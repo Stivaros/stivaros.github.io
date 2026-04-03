@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const entries: CollectionEntry<'systems'>[] = await getCollection('systems');
+---
+
+<BaseLayout
+  title="Systems — stivaros"
+  description="Case studies in engineering and product."
+>
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold text-body mb-2">Systems</h1>
+    <p class="text-muted">Case studies in engineering and product.</p>
+  </header>
+
+  {
+    entries.length === 0 ? (
+      <p class="text-muted">No case studies yet.</p>
+    ) : (
+      <ul class="space-y-8">
+        {entries.map((entry) => (
+          <li class="flex flex-col gap-2">
+            <a href={`/systems/${entry.slug}`} class="text-body font-semibold text-lg">
+              {entry.data.title}
+            </a>
+            <p class="text-muted text-sm">{entry.data.impact}</p>
+            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
+              {entry.data.technology.map((tech) => (
+                <li>
+                  <span class="text-xs font-mono text-muted border border-subtle rounded px-1.5 py-0.5">
+                    {tech}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>

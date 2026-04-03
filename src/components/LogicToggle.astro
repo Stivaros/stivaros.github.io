@@ -1,0 +1,81 @@
+---
+// LogicToggle — tab switcher between a prose view and a diagram view.
+// Uses the ARIA tab pattern (tablist / tab / tabpanel).
+// No props required; content is supplied via named slots.
+---
+
+<div class="my-8">
+  <div role="tablist" aria-label="Content view" class="flex gap-0 border-b border-subtle mb-6">
+    <button
+      role="tab"
+      data-tab="prose"
+      aria-selected="true"
+      aria-controls="panel-prose"
+      id="tab-prose"
+      class="px-4 py-2 text-sm font-mono text-body border-b-2 border-emerald-400 -mb-px transition-colors duration-150 light:border-emerald-600"
+    >
+      Prose
+    </button>
+    <button
+      role="tab"
+      data-tab="diagram"
+      aria-selected="false"
+      aria-controls="panel-diagram"
+      id="tab-diagram"
+      class="px-4 py-2 text-sm font-mono text-muted border-b-2 border-transparent -mb-px transition-colors duration-150"
+    >
+      Diagram
+    </button>
+  </div>
+
+  <div
+    id="panel-prose"
+    role="tabpanel"
+    aria-labelledby="tab-prose"
+  >
+    <slot name="prose" />
+  </div>
+
+  <div
+    id="panel-diagram"
+    role="tabpanel"
+    aria-labelledby="tab-diagram"
+    hidden
+  >
+    <slot name="diagram" />
+  </div>
+</div>
+
+<script>
+  // Scope to each LogicToggle instance on the page.
+  document.querySelectorAll<HTMLElement>('[role="tablist"]').forEach((tablist) => {
+    const tabs = tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetPanelId = tab.getAttribute('aria-controls');
+        if (!targetPanelId) return;
+        const targetPanel = document.getElementById(targetPanelId);
+        if (!targetPanel) return;
+
+        // Deactivate all tabs and hide all panels within this tablist's scope.
+        tabs.forEach((t) => {
+          t.setAttribute('aria-selected', 'false');
+          t.classList.remove('text-body', 'border-emerald-400', 'light:border-emerald-600');
+          t.classList.add('text-muted', 'border-transparent');
+          const panelId = t.getAttribute('aria-controls');
+          if (panelId) {
+            const panel = document.getElementById(panelId);
+            if (panel) panel.hidden = true;
+          }
+        });
+
+        // Activate the clicked tab and show its panel.
+        tab.setAttribute('aria-selected', 'true');
+        tab.classList.remove('text-muted', 'border-transparent');
+        tab.classList.add('text-body', 'border-emerald-400', 'light:border-emerald-600');
+        targetPanel.hidden = false;
+      });
+    });
+  });
+</script>

@@ -4,22 +4,24 @@ import { formatDateForDisplay } from '@lib/date-formatter';
 
 interface Props {
   title: string;
-  date: Date;
+  date?: Date;
   description?: string;
   isLegacy?: boolean;
 }
 
 const { title, date, description, isLegacy = false } = Astro.props;
-const formattedDate = formatDateForDisplay(date);
+const formattedDate = date ? formatDateForDisplay(date) : null;
 ---
 
 <BaseLayout title={title} description={description}>
   <article>
     <header class="mb-8">
       <h1 class="text-3xl font-bold text-body mb-2">{title}</h1>
-      <time datetime={date.toISOString()} class="text-sm text-muted">
-        {formattedDate}
-      </time>
+      {date && formattedDate && (
+        <time datetime={date.toISOString()} class="text-sm text-muted">
+          {formattedDate}
+        </time>
+      )}
     </header>
 
     {
