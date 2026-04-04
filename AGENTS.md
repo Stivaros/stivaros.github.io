@@ -306,6 +306,7 @@ When making a non-trivial architectural or design-system decision, write an ADR 
 - E2E tests require a production build. Always run `npm run build` before `npm run test:e2e`.
 - Accent (emerald) usage must stay within the four permitted contexts listed above.
 - Do not add a `tailwind.config.js`. All Tailwind configuration is CSS-first in `global.css`.
+- `@fontsource-variable` packages register the font family with a ` Variable` suffix (e.g. `"JetBrains Mono Variable"`). The `--font-mono` token must use that exact name as the first entry or the font will not be applied.
 - Do not add a PostCSS config. The `@tailwindcss/vite` plugin handles everything.
 - The `archive` collection is migration-managed; do not edit its files by hand.
 - All content schema changes require updating the corresponding collection config and any migration scripts.
