@@ -1,25 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/jetbrains-mono";
 
-/*
-  Theme tokens for stivaros.com.
-
-  Design system:
-  - Dark mode is the default (class="dark" on <html>).
-  - Accent is emerald, used sparingly: link underlines, focus rings,
-    section heading left-borders, active nav indicators.
-  - Light mode is monochrome zinc with emerald-600 accent — mirrors the
-    dark mode philosophy exactly (one colour, everything else neutral).
-
-  See docs/adr/0002-design-tokens.md for rationale.
-*/
-
-/*
-  Class-based variant declarations.
-  These make `dark:` and `light:` utility prefixes respond to the
-  html.dark / html.light classes set by the ThemeToggle script,
-  rather than to prefers-color-scheme media queries.
-*/
 @variant dark (&:where(.dark, .dark *));
 @variant light (&:where(.light, .light *));
 
@@ -28,43 +9,145 @@
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/*
-  Semantic single-purpose colour aliases. Placed in utilities so they
-  sit above components in the cascade and can override component defaults
-  when applied directly to an element.
-*/
 @layer utilities {
-  /* Primary content text — zinc-100 dark / zinc-900 light */
   .text-body {
     @apply text-zinc-100 light:text-zinc-900;
   }
 
-  /* Secondary / metadata text — zinc-400 dark / zinc-500 light */
   .text-muted {
     @apply text-zinc-400 light:text-zinc-500;
   }
 
-  /* Card or panel background — zinc-900 dark / white light */
   .bg-surface {
     @apply bg-zinc-900 light:bg-white;
   }
 
-  /* Subtle dividers and borders — zinc-800 dark / zinc-200 light */
   .border-subtle {
     @apply border-zinc-800 light:border-zinc-200;
   }
 }
 
-/*
-  Multi-property UI components that compose the utilities above.
-  Individual utilities applied directly to an element override these.
-*/
 @layer components {
-  /* Clickable card — surface background, themed border, hover lift */
   .card {
     @apply bg-zinc-900 border border-zinc-800 rounded
            hover:border-zinc-700 transition-colors duration-150
            light:bg-white light:border-zinc-200 light:hover:border-zinc-300;
+  }
+
+  .link-fill a {
+    @apply no-underline bg-bottom bg-no-repeat pb-0.5
+           transition-[background-size,color] duration-200 ease-out
+           [background-size:100%_3px];
+    background-image: linear-gradient(to top, var(--color-emerald-400), var(--color-emerald-400));
+  }
+
+  .link-fill a:hover {
+    @apply text-zinc-950 [background-size:100%_100%];
+  }
+
+  html.light .link-fill a {
+    background-image: linear-gradient(to top, var(--color-emerald-600), var(--color-emerald-600));
+  }
+
+  html.light .link-fill a:hover {
+    @apply text-zinc-950;
+  }
+
+  .prose {
+    & h2 {
+      @apply border-l-4 border-emerald-400 pl-4 text-2xl font-bold tracking-tight mb-4 mt-10 leading-snug light:border-emerald-600;
+    }
+
+    & h3 {
+      @apply text-xl font-semibold tracking-tight mb-3 mt-8;
+    }
+
+    & p {
+      @apply mb-5 leading-relaxed;
+    }
+
+    & ul {
+      @apply mb-5 list-disc pl-6;
+
+      & > li {
+        @apply mb-2;
+      }
+    }
+
+    & ol {
+      @apply mb-5 list-decimal pl-6;
+
+      & > li {
+        @apply mb-2;
+      }
+    }
+
+    & blockquote {
+      @apply border-l-4 border-zinc-700 pl-5 text-zinc-400 light:text-zinc-500 italic my-8 light:border-zinc-300;
+    }
+
+    & hr {
+      @apply border-zinc-800 light:border-zinc-200 my-10;
+    }
+
+    & strong {
+      @apply font-semibold text-zinc-100 light:text-zinc-900;
+    }
+  }
+
+  .nav-logo {
+    @apply bg-none pb-0 no-underline font-semibold text-zinc-100 light:text-zinc-900 tracking-tight
+           hover:text-emerald-400 light:hover:text-emerald-600
+           transition-colors duration-150;
+  }
+
+  .nav-link {
+    @apply bg-none pb-0 text-sm text-zinc-300 light:text-zinc-600
+           border-t-2 border-transparent
+           hover:border-emerald-400 light:hover:border-emerald-600
+           hover:text-emerald-400 light:hover:text-emerald-600
+           transition-colors duration-150;
+  }
+
+  .nav-link-active {
+    @apply bg-none pb-1 text-sm text-zinc-100 light:text-zinc-900 font-semibold
+           border-b-2 border-emerald-400 light:border-emerald-600
+           hover:text-zinc-100 light:hover:text-zinc-900 transition-colors duration-150;
+  }
+
+  .section-card {
+    @apply no-underline bg-none bg-zinc-950 light:bg-zinc-50 px-6 py-8
+           hover:bg-zinc-900 light:hover:bg-white
+           transition-colors duration-150;
+  }
+
+  .section-card-title {
+    @apply text-xs font-mono uppercase tracking-widest text-zinc-400 light:text-zinc-500 mb-3
+           transition-colors duration-150;
+  }
+
+  .section-card:hover .section-card-title {
+    @apply text-emerald-400 light:text-emerald-600;
+  }
+
+  .tab-btn {
+    @apply px-4 py-2 text-sm font-mono text-zinc-400 light:text-zinc-500
+           border-b-2 border-transparent -mb-px
+           transition-colors duration-150;
+  }
+
+  .tab-btn-active {
+    @apply text-zinc-100 light:text-zinc-900 border-emerald-400 light:border-emerald-600;
+  }
+
+  .tag {
+    @apply text-xs font-mono text-zinc-400 light:text-zinc-500 border border-zinc-800 light:border-zinc-200 rounded px-1.5 py-0.5;
+  }
+
+  .legacy-banner {
+    @apply mb-8 border-l-4 border-amber-400
+           bg-zinc-900 px-4 py-3 text-sm text-amber-300
+           light:bg-zinc-50 light:text-amber-700 light:border-amber-400;
   }
 }
 
@@ -77,31 +160,25 @@
     color-scheme: light;
   }
 
-  /*
-    Background and text are applied to body so that Tailwind utility classes
-    on <body> in layouts (e.g. min-h-screen) do not silently override theme
-    colours. The html.light selector flips both modes.
-  */
   body {
-    @apply bg-zinc-950 text-zinc-100 font-sans antialiased;
+    @apply bg-zinc-950 text-zinc-100 font-sans antialiased text-lg;
   }
 
   html.light body {
     @apply bg-zinc-50 text-zinc-900;
   }
 
-  /* Brutalist link treatment — the primary emerald accent usage */
   a {
-    @apply underline decoration-emerald-400 decoration-2 underline-offset-4
-           transition-colors duration-150
-           hover:decoration-emerald-300;
+    @apply no-underline bg-bottom bg-no-repeat pb-0.5
+           transition-[background-size,color] duration-200 ease-out
+           [background-size:100%_3px];
+    background-image: linear-gradient(to top, var(--color-emerald-400), var(--color-emerald-400));
   }
 
   html.light a {
-    @apply decoration-emerald-600 hover:decoration-emerald-700;
+    background-image: linear-gradient(to top, var(--color-emerald-600), var(--color-emerald-600));
   }
 
-  /* Focus ring */
   :focus-visible {
     @apply outline-none ring-2 ring-emerald-400 ring-offset-2 ring-offset-zinc-950;
   }
@@ -111,10 +188,11 @@
   }
 
   code {
-    @apply font-mono text-sm border-l-2 border-emerald-400 pl-1;
+    @apply font-mono text-sm rounded px-1.5 py-0.5
+           bg-zinc-800/70 ring-1 ring-emerald-400/30;
   }
 
   html.light code {
-    @apply border-emerald-600;
+    @apply bg-zinc-100 ring-emerald-600/30;
   }
 }
