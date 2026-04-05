@@ -38,10 +38,3 @@ export function transformGatsbyFrontmatter(
   return result;
 }
 
-export function buildArchiveWarning(): string {
-  return '> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.';
-}
-
-export function prependArchiveWarning(body: string): string {
-  return `${buildArchiveWarning()}\n\n${body}`;
-}

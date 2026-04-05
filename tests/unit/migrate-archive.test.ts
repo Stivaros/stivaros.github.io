@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  buildArchiveWarning,
   deriveSlugFromPath,
-  prependArchiveWarning,
   transformGatsbyFrontmatter,
 } from '@lib/migrate-archive';
 
@@ -70,29 +68,5 @@ describe('deriveSlugFromPath', () => {
   it('handles slugs with numbers and hyphens', () => {
     const slug = deriveSlugFromPath('/home/user/blog/src/content/blog/30-30-30-rule-debugging/index.md');
     expect(slug).toBe('30-30-30-rule-debugging');
-  });
-});
-
-describe('buildArchiveWarning', () => {
-  it('returns a blockquote with the archive warning text', () => {
-    const warning = buildArchiveWarning();
-    expect(warning).toMatch(/^>/);
-    expect(warning).toContain('Archive');
-    expect(warning).toContain('blog.stivaros.com');
-  });
-});
-
-describe('prependArchiveWarning', () => {
-  it('prepends the archive warning to the post body', () => {
-    const body = 'This is the original post content.';
-    const result = prependArchiveWarning(body);
-    expect(result.startsWith(buildArchiveWarning())).toBe(true);
-  });
-
-  it('preserves the original post body content after the warning', () => {
-    const body = 'This is the original post content.';
-    const result = prependArchiveWarning(body);
-    expect(result).toContain(body);
-    expect(result.indexOf(body)).toBeGreaterThan(0);
   });
 });

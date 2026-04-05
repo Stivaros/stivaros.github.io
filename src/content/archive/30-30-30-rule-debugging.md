@@ -6,8 +6,6 @@ isLegacy: true
 description: "A tip for developers (especially juniors) to structure their debugging time"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 This is a set of debugging phases for engineers of all abilities and experience levels. First taught to me as a junior (thank you [Gary Taylor!](https://github.com/garytaylor)), they still serve me well as I lead a small team of my own.
 
 They are:

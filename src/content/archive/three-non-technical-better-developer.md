@@ -6,8 +6,6 @@ isLegacy: true
 description: "A helper on improving development skills through easily repeatable daily habits"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 Quite simply, how do we get better without reading a ton of technical documentation, reading code and writing code? What are the repeatable _non-technical_ habits we can practice every day that, over time, will make us better?
 
 ## 1. Give a Damn

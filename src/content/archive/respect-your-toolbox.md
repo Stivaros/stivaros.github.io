@@ -6,8 +6,6 @@ isLegacy: true
 description: "The benefits that came from understanding one field really well rather than loads of fields to a mediocre standard."
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 As a developer, you will need an entire toolbox. No matter how focussed you try to make your career, it is not enough to know how to do just one thing. However, having one go-to tool as a reference helps you navigate the rest of the toolbox. It is easier to know when to use a screwdriver over a hammer when you understand the nuance of the tool. Sure, you can use the butt of a screwdriver as a hammer to some success. Ultimately, they both get the T-shaped metal thing into the wood. Once mastered, the ability to match a screw to a screwdriver and a hammer to a nail will help you be more productive, safer, and save you money.
 
 Early on in my career as a developer, I decided I wanted to focus on being a Ruby on Rails developer. I had learnt the language and framework to a beginner's standard and was hesitant to start again, in another language, from scratch. That said, learning new skills to a similar calibre is easier having undertaken that journey before.

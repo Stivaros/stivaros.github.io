@@ -6,8 +6,6 @@ isLegacy: true
 description: "A brief(ish) timeline of the effort and process involved in getting my first job as a developer"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 I finished a remote bootcamp in summer 2017. It wasn’t that good, truth be told, and neither my technical ability nor my portfolio got me any attention. I registered on all the usual non-tech job boards ([indeed](https://www.indeed.co.uk/), [jobsite](https://www.jobsite.co.uk/), etc) and updated [my LinkedIn profile](https://www.linkedin.com/in/estivaros/). I also went in person to some high street recruiters such as [Reed](https://www.reed.co.uk/). All this goes to say that I hadn’t really realised how separate the tech job world is at that point.
 
 After a while I found more tech-specific job sites such as [AngelList](https://angel.co/) and began setting up profiles. I began scouring the web for Ruby on Rails jobs in London and really ramped up the amount of applications I submitted. I tracked these applications through [Huntr](https://huntr.co) where, having just checked, I can see 82 roles. I would say I applied to over 100 as there were more I’d forgotten to track. By this point I started to have some ‘success’ in having screening calls as well. A [redesigned portfolio](http://stivaros.com/) was really helping my case, as was an [active Github profile](https://github.com/stivaros).

@@ -6,8 +6,6 @@ isLegacy: true
 description: "Moving towards effective estimation within a dev team"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 ## In Summary (tl;dr)
 
 The "Delphi Method" (Estimate-Talk-Estimate) works for engineering teams. It doesn't need experts to be successful.

@@ -6,8 +6,6 @@ isLegacy: true
 description: "Using the terminal to provide a formatted DateTime"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 While preparing this blog I realised that the timestamps were not automatically generated.
 That actually makes a lot of sense, considering the lack of database and that I'm using [Gatsby](https://www.gatsbyjs.org/),
 a static site generator. How would timestamps be automatically generated?

@@ -6,8 +6,6 @@ isLegacy: true
 description: "Harnessing Ruby's expressive nature can lead to cleaner code"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 ## In Summary (tl;dr)
 
 `tap` [(docs)](https://devdocs.io/ruby~3.2/kernel#method-i-tap) will take an object and pass it to a block. The original object is the return value.

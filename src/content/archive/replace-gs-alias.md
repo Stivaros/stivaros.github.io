@@ -6,8 +6,6 @@ isLegacy: true
 description: "Accidentally typing gs into the terminal is no longer a source of frustration"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 This post was originally going to be called "Remove the `git›gs` alias in Ubuntu" but,
 as it transpires, removing it is actually super difficult so it's easier to just replace it.
 So, what to replace it to? Luckily, as of [git 2.23](https://github.blog/2019-08-16-highlights-from-git-2-23/),

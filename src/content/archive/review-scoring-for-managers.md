@@ -6,8 +6,6 @@ isLegacy: true
 description: "A breakdown of the system I've settled on for reviewing performance on a five-point scale"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 ## In Summary (tl;dr)
 
 _In a rush? Lazy? This section explains the scores in a nutshell_

@@ -6,8 +6,6 @@ isLegacy: true
 description: "The person who stumbles upon your code six months after your commit is predisposed to hate you, it's natural"
 ---
 
-> **Archive:** This post was originally published on the legacy blog at blog.stivaros.com. It is preserved here for historical reference and may no longer reflect current thinking.
-
 Hopefully, every developer, developer-in-training and ex-developer knows some variation of [The Boy Scout Rule](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html):
 
 > Always leave the campground cleaner than you found it
