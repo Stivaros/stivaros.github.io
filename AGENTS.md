@@ -22,7 +22,7 @@ A personal site for stivaros.com — a complete rebrand and rebuild of a 6-year-
 | Tailwind CSS | 4.x | CSS-first config via `@theme`, no PostCSS or `tailwind.config.js` required. See `docs/adr/0002-tailwind-v4.md`. |
 | @tailwindcss/vite | 4.x | Vite plugin integration; Astro's bundler is Vite, so this is the correct integration path (not the PostCSS plugin). |
 | TypeScript | bundled with Astro 5 | Configured via `astro/tsconfigs/strictest` — maximum type safety. |
-| Vitest | 3.x | Unit testing for `src/lib`. Coverage provider is v8; 100% coverage on `src/lib` is enforced. |
+| Vitest | 4.x | Unit testing for `src/lib`. Coverage provider is v8; 100% coverage on `src/lib` is enforced. |
 | Playwright | 1.45.x | E2E tests against the production build. Includes axe-core accessibility checks. |
 | tsx | 4.x | Runs TypeScript scripts directly (e.g. migration scripts). |
 
@@ -139,7 +139,7 @@ Three jobs run:
 - `typecheck` and `unit-test` run in parallel. `typecheck` runs `npm run typecheck` (astro check); `unit-test` runs `npm test` (vitest run) and must pass with zero failures.
 - `build` runs `npm run build` and depends on both `typecheck` and `unit-test` passing first.
 
-All jobs use Node 22 on `ubuntu-latest` and share an npm cache keyed on `package-lock.json`.
+All jobs use Node 24 on `ubuntu-latest` and share an npm cache keyed on `package-lock.json`.
 
 Playwright E2E tests are not included in CI yet — they require a browser install step and will be added separately.
 
@@ -199,9 +199,11 @@ There is exactly one stylesheet: `src/styles/global.css`. It:
 
 1. Imports Tailwind: `@import "tailwindcss";`
 2. Declares custom tokens under `@theme { }`.
-3. Applies base styles under `@layer base { }`.
+3. Defines semantic utilities under `@layer utilities { }` (e.g. `.text-body`, `.text-muted`).
+4. Defines named component classes under `@layer components { }` (e.g. `.prose`, `.nav-link`, `.card`).
+5. Applies element defaults under `@layer base { }`.
 
-There are no per-component CSS files. Tailwind utility classes are applied directly in `.astro` templates. Avoid `<style>` blocks in components unless unavoidable.
+There are no per-component CSS files. Simple, single-use styles use Tailwind utilities directly in `.astro` templates. Complex or repeated class combinations are abstracted into named component classes in `global.css` under `@layer components`. See `src/styles/AGENTS.md` for a full component class index and cascade rationale. Avoid `<style>` blocks in components unless unavoidable.
 
 ---
 

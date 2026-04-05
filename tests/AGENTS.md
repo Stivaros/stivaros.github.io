@@ -62,4 +62,4 @@ CI handles this order automatically.
 
 ## Accessibility Testing
 
-**axe-core accessibility checks will be added to E2E tests.** Each page-level spec will include an axe scan via `@axe-core/playwright`. Any accessibility violation at the critical or serious level will fail the test. Do not remove or skip these checks without explicit approval.
+All key pages have axe-core accessibility checks in `tests/e2e/accessibility.spec.ts` via `@axe-core/playwright`. The assertion is `expect(results.violations).toEqual([])` — **any** violation fails the test, not just critical or serious ones. Do not remove or skip these checks without explicit approval.
