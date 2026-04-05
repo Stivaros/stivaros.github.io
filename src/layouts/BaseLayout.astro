@@ -8,6 +8,19 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+
+const navLinks = [
+  { href: '/dispatch', label: 'dispatch' },
+  { href: '/systems',  label: 'systems'  },
+  { href: '/archive',  label: 'archive'  },
+] as const;
 ---
 
 <!doctype html>
@@ -28,26 +41,37 @@ const { title, description } = Astro.props;
   </head>
   <body class="min-h-screen">
     <header class="bg-surface border-b border-subtle">
-      <nav class="max-w-3xl mx-auto px-4 py-4 flex items-center gap-6">
-        <a href="/" class="no-underline font-semibold text-body">
+      <nav class="max-w-4xl mx-auto px-6 py-5 flex items-center gap-8">
+        <a href="/" class="nav-logo">
           stivaros
         </a>
-        <!-- dispatch, systems, and archive links rely on the global a base style for underline treatment -->
-        <a href="/dispatch">dispatch</a>
-        <a href="/systems">systems</a>
-        <a href="/archive">archive</a>
+
+        <div class="link-fill contents">
+          {navLinks.map(({ href, label }) => (
+            isActive(href) ? (
+              <a href={href} aria-current="page" class="nav-link-active">
+                {label}
+              </a>
+            ) : (
+              <a href={href} class="nav-link">
+                {label}
+              </a>
+            )
+          ))}
+        </div>
+
         <div class="ml-auto">
           <ThemeToggle />
         </div>
       </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto px-4 py-10">
+    <main class="max-w-4xl mx-auto px-6 py-12">
       <slot />
     </main>
 
-    <footer class="border-t border-subtle mt-16">
-      <div class="max-w-3xl mx-auto px-4 py-6 text-sm text-muted">
+    <footer class="border-t border-subtle mt-20">
+      <div class="max-w-4xl mx-auto px-6 py-6 text-sm text-muted">
         &copy; {new Date().getFullYear()} stivaros
       </div>
     </footer>

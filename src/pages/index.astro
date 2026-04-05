@@ -6,30 +6,44 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   title="stivaros"
   description="Engineer. Writing about systems, craft, and the work."
 >
-  <section class="mb-16">
-    <h1 class="text-4xl font-bold text-body mb-3">stivaros</h1>
-    <p class="text-lg text-muted">
-      Engineer. Writing about systems, craft, and the work.
+  <section class="mb-20">
+    <h1 class="text-6xl sm:text-7xl font-bold tracking-tight leading-none mb-5">
+      <span class="block border-l-4 border-emerald-400 pl-5 light:border-emerald-600">stivaros</span>
+    </h1>
+    <p class="text-lg text-muted pl-5 leading-relaxed">
+      Engineer. Writing about systems,<br />craft, and the work.
     </p>
   </section>
 
-  <section class="grid gap-6 sm:grid-cols-2">
-    <a href="/dispatch" class="card block px-6 py-5 group no-underline">
-      <h2
-        class="text-xl font-semibold text-body mb-2 underline decoration-emerald-400 decoration-2 underline-offset-4 group-hover:decoration-emerald-300 transition-colors duration-150 light:decoration-emerald-600 light:group-hover:decoration-emerald-700"
-      >
-        Dispatch
-      </h2>
-      <p class="text-sm text-muted">Weekly technical notes.</p>
+  <nav
+    aria-label="Site sections"
+    class="grid grid-cols-1 sm:grid-cols-3 mb-20 border border-zinc-800 light:border-zinc-200"
+  >
+    <a href="/dispatch" class="section-card">
+      <h2 class="section-card-title">dispatch</h2>
+      <p class="text-body leading-relaxed">
+        Weekly technical notes, observations, and short essays.
+      </p>
     </a>
 
-    <a href="/archive" class="card block px-6 py-5 group no-underline">
-      <h2
-        class="text-xl font-semibold text-body mb-2 underline decoration-emerald-400 decoration-2 underline-offset-4 group-hover:decoration-emerald-300 transition-colors duration-150 light:decoration-emerald-600 light:group-hover:decoration-emerald-700"
-      >
-        Archive
-      </h2>
-      <p class="text-sm text-muted">Posts from the old blog, preserved.</p>
+    <a
+      href="/systems"
+      class="section-card border-t border-zinc-800 light:border-zinc-200 sm:border-t-0 sm:border-l"
+    >
+      <h2 class="section-card-title">systems</h2>
+      <p class="text-body leading-relaxed">
+        Case studies in engineering and product.
+      </p>
     </a>
-  </section>
+
+    <a
+      href="/archive"
+      class="section-card border-t border-zinc-800 light:border-zinc-200 sm:border-t-0 sm:border-l"
+    >
+      <h2 class="section-card-title">archive</h2>
+      <p class="text-body leading-relaxed">
+        Posts from the old blog at blog.stivaros.com, preserved for reference.
+      </p>
+    </a>
+  </nav>
 </BaseLayout>
