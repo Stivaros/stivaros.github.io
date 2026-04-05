@@ -1,7 +1,4 @@
 ---
-// LogicToggle — tab switcher between a prose view and a diagram view.
-// Uses the ARIA tab pattern (tablist / tab / tabpanel).
-// No props required; content is supplied via named slots.
 ---
 
 <div class="my-8">
@@ -12,7 +9,7 @@
       aria-selected="true"
       aria-controls="panel-prose"
       id="tab-prose"
-      class="px-4 py-2 text-sm font-mono text-body border-b-2 border-emerald-400 -mb-px transition-colors duration-150 light:border-emerald-600"
+      class="tab-btn tab-btn-active"
     >
       Prose
     </button>
@@ -22,7 +19,7 @@
       aria-selected="false"
       aria-controls="panel-diagram"
       id="tab-diagram"
-      class="px-4 py-2 text-sm font-mono text-muted border-b-2 border-transparent -mb-px transition-colors duration-150"
+      class="tab-btn"
     >
       Diagram
     </button>
@@ -47,7 +44,6 @@
 </div>
 
 <script>
-  // Scope to each LogicToggle instance on the page.
   document.querySelectorAll<HTMLElement>('[role="tablist"]').forEach((tablist) => {
     const tabs = tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]');
 
@@ -58,11 +54,9 @@
         const targetPanel = document.getElementById(targetPanelId);
         if (!targetPanel) return;
 
-        // Deactivate all tabs and hide all panels within this tablist's scope.
         tabs.forEach((t) => {
           t.setAttribute('aria-selected', 'false');
-          t.classList.remove('text-body', 'border-emerald-400', 'light:border-emerald-600');
-          t.classList.add('text-muted', 'border-transparent');
+          t.classList.remove('tab-btn-active');
           const panelId = t.getAttribute('aria-controls');
           if (panelId) {
             const panel = document.getElementById(panelId);
@@ -70,10 +64,8 @@
           }
         });
 
-        // Activate the clicked tab and show its panel.
         tab.setAttribute('aria-selected', 'true');
-        tab.classList.remove('text-muted', 'border-transparent');
-        tab.classList.add('text-body', 'border-emerald-400', 'light:border-emerald-600');
+        tab.classList.add('tab-btn-active');
         targetPanel.hidden = false;
       });
     });

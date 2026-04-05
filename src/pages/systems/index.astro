@@ -19,19 +19,17 @@ const entries: CollectionEntry<'systems'>[] = await getCollection('systems');
     entries.length === 0 ? (
       <p class="text-muted">No case studies yet.</p>
     ) : (
-      <ul class="space-y-8">
+      <ul class="link-fill space-y-8">
         {entries.map((entry) => (
           <li class="flex flex-col gap-2">
-            <a href={`/systems/${entry.slug}`} class="text-body font-semibold text-lg">
+            <a href={`/systems/${entry.id}`} class="font-semibold text-lg w-fit">
               {entry.data.title}
             </a>
             <p class="text-muted text-sm">{entry.data.impact}</p>
             <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
               {entry.data.technology.map((tech) => (
                 <li>
-                  <span class="text-xs font-mono text-muted border border-subtle rounded px-1.5 py-0.5">
-                    {tech}
-                  </span>
+                  <span class="tag">{tech}</span>
                 </li>
               ))}
             </ul>
