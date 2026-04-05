@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const dispatch = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/dispatch' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -11,7 +12,7 @@ const dispatch = defineCollection({
 });
 
 const systems = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/systems' }),
   schema: z.object({
     title: z.string(),
     impact: z.string(),
@@ -22,7 +23,7 @@ const systems = defineCollection({
 });
 
 const archive = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/archive' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
