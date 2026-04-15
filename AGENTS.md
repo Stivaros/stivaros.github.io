@@ -9,7 +9,7 @@ This file is the primary entry point for any agent starting work on this reposit
 A personal site for stivaros.com — a complete rebrand and rebuild of a 6-year-old Gatsby portfolio. Goals:
 
 - A fast, accessible, statically-generated site that deploys from the `master` branch to GitHub Pages.
-- A writing home: two new content streams (Dispatch for tech notes, Systems for case studies) plus an archive of migrated Gatsby blog posts.
+- A writing home: two new content streams (Thoughts for tech notes, Systems for case studies) plus an archive of migrated Gatsby blog posts.
 - A reference implementation of agentic, documentation-driven development: every non-trivial decision is recorded, every directory has an `AGENTS.md`, tests are behavioural specs, commits follow conventional commit format.
 
 ---
@@ -44,7 +44,7 @@ stivaros.github.io/
 ├── src/
 │   ├── components/            # Astro components (no framework JS by default)
 │   ├── content/               # Content Collections source
-│   │   ├── dispatch/          # Tech notes (Markdown/MDX)
+│   │   ├── thoughts/          # Tech notes (Markdown/MDX)
 │   │   ├── systems/           # Case studies (Markdown/MDX)
 │   │   └── archive/           # Migrated Gatsby blog posts (Markdown)
 │   ├── layouts/               # Astro layout components
@@ -211,7 +211,7 @@ There are no per-component CSS files. Simple, single-use styles use Tailwind uti
 
 Astro Content Collections provide type-safe access to Markdown/MDX files. All collections live under `src/content/`.
 
-### Dispatch (`src/content/dispatch/`)
+### Thoughts (`src/content/thoughts/`)
 
 Short-form tech notes. Intended for frequent, lower-stakes writing. Schema: `title`, `date`, `tags`, optional `description`.
 
@@ -265,7 +265,7 @@ All commits must follow the Conventional Commits specification:
 [optional body]
 ```
 
-Common types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `style`. Scope is optional but encouraged (e.g. `feat(dispatch): add reading-time utility`).
+Common types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `style`. Scope is optional but encouraged (e.g. `feat(thoughts): add reading-time utility`).
 
 ### TypeScript Strictness
 

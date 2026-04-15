@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
 
-test('navigates from the home page to the dispatch index via the nav link', async ({ page }) => {
+test('navigates from the home page to the thoughts index via the nav link', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('navigation').getByRole('link', { name: 'dispatch', exact: true }).click();
-  await expect(page).toHaveURL(/\/dispatch$/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Dispatch');
+  await page.getByRole('navigation').getByRole('link', { name: 'thoughts', exact: true }).click();
+  await expect(page).toHaveURL(/\/thoughts$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Thoughts');
 });
 
-test('navigates from the dispatch index to a post and renders the post title as an h1', async ({ page }) => {
-  await page.goto('/dispatch');
+test('navigates from the thoughts index to a post and renders the post title as an h1', async ({ page }) => {
+  await page.goto('/thoughts');
   await page.getByRole('main').getByRole('link').first().click();
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });
@@ -29,8 +29,8 @@ test('navigates from the archive index to a legacy post and renders the Historic
 });
 
 test('marks the current section link as active in the nav', async ({ page }) => {
-  await page.goto('/dispatch');
-  const activeLink = page.getByRole('navigation').getByRole('link', { name: 'dispatch', exact: true });
+  await page.goto('/thoughts');
+  const activeLink = page.getByRole('navigation').getByRole('link', { name: 'thoughts', exact: true });
   await expect(activeLink).toHaveAttribute('aria-current', 'page');
 });
 

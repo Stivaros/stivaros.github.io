@@ -7,8 +7,8 @@ test('home page has no automatically detectable accessibility violations', async
   expect(results.violations).toEqual([]);
 });
 
-test('dispatch index has no automatically detectable accessibility violations', async ({ page }) => {
-  await page.goto('/dispatch');
+test('thoughts index has no automatically detectable accessibility violations', async ({ page }) => {
+  await page.goto('/thoughts');
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
@@ -25,8 +25,8 @@ test('systems index has no automatically detectable accessibility violations', a
   expect(results.violations).toEqual([]);
 });
 
-test('a dispatch post page has no automatically detectable accessibility violations', async ({ page }) => {
-  await page.goto('/dispatch/hello-dispatch');
+test('a thoughts post page has no automatically detectable accessibility violations', async ({ page }) => {
+  await page.goto('/thoughts/hello-thoughts');
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
