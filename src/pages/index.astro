@@ -76,36 +76,11 @@ function fmtDate(d: Date) {
       spellcheck="false"
       data-placeholder="filter..."
       aria-label="Filter sections"
-      class="font-mono text-sm text-zinc-100 light:text-zinc-900 ml-1 outline-none inline-block"
+      class="terminal-filter font-mono text-sm text-zinc-100 light:text-zinc-900 ml-1 outline-none inline-block"
     ></span>
   </div>
 </BaseLayout>
 
-<style>
-  #terminal-filter {
-    caret-color: transparent;
-    min-width: 1ch;
-  }
-  #terminal-filter:focus-visible {
-    box-shadow: none;
-  }
-  #terminal-filter::after {
-    content: '';
-    display: inline-block;
-    width: 0.5em;
-    height: 1.5em;
-    background-color: #34d399; /* emerald-400 */
-    vertical-align: bottom;
-    animation: blink 1s steps(2) infinite;
-  }
-  :global(.light) #terminal-filter::after {
-    background-color: #059669; /* emerald-600 */
-  }
-  #terminal-filter:empty::before {
-    content: attr(data-placeholder);
-    color: #52525b; /* zinc-600 */
-  }
-</style>
 
 <script>
   const input = document.getElementById('terminal-filter') as HTMLElement;

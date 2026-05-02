@@ -175,6 +175,34 @@
   .ls-row-focused {
     background-color: rgba(52, 211, 153, 0.08);
   }
+
+  .terminal-filter {
+    caret-color: transparent;
+    min-width: 1ch;
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0.5em;
+      height: 1.5em;
+      background-color: #34d399; /* emerald-400 */
+      vertical-align: bottom;
+      animation: blink 1s steps(2) infinite;
+    }
+
+    &:empty::before {
+      content: attr(data-placeholder);
+      color: #52525b; /* zinc-600 */
+    }
+  }
+
+  html.light .terminal-filter::after {
+    background-color: #059669; /* emerald-600 */
+  }
 }
 
 @layer base {
