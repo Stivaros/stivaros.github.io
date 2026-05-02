@@ -11,7 +11,7 @@ const entries: CollectionEntry<'systems'>[] = await getCollection('systems');
   description="Case studies in engineering and product."
 >
   <div class="term-prompt mb-4">
-    <span class="text-emerald-400 light:text-emerald-600">$</span>
+    <span class="text-accent">$</span>
     <span class="ml-1">systems --list</span>
   </div>
 
@@ -30,7 +30,7 @@ const entries: CollectionEntry<'systems'>[] = await getCollection('systems');
           const stack = entry.data.technology.join('/');
           return (
             <div class="grid grid-cols-[80px_1fr] sm:grid-cols-[80px_1fr_180px] gap-4 py-5 border-t border-zinc-800 light:border-zinc-200 items-baseline min-w-[360px]">
-              <span class="font-mono text-xs text-emerald-400 light:text-emerald-600">{id}</span>
+              <span class="font-mono text-xs text-accent">{id}</span>
               <div>
                 <a href={`/systems/${entry.id}`} class="text-lg font-semibold block mb-1">
                   {entry.data.title}

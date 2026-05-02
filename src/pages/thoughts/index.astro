@@ -11,7 +11,7 @@ entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   description="Technical notes, observations, and short essays."
 >
   <div class="term-prompt mb-4">
-    <span class="text-emerald-400 light:text-emerald-600">$</span>
+    <span class="text-accent">$</span>
     <span class="ml-1">ls thoughts/ --long --tagged</span>
   </div>
 
@@ -35,7 +35,7 @@ entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
               <a href={`/thoughts/${entry.id}`} class="text-sm font-medium truncate">
                 {entry.data.title}
               </a>
-              <span class="text-right text-xs text-emerald-400 light:text-emerald-600">
+              <span class="text-right text-xs text-accent">
                 {tag && `#${tag}`}
               </span>
             </div>
@@ -46,7 +46,7 @@ entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   }
 
   <div class="term-prompt mt-6">
-    <span class="text-emerald-400 light:text-emerald-600">$</span>
+    <span class="text-accent">$</span>
     <span class="ml-1">_</span>
   </div>
 </BaseLayout>

@@ -19,12 +19,12 @@ const isoDate = date ? date.toISOString().slice(0, 10) : null;
   <article class="max-w-2xl">
     <div class="font-mono text-xs text-zinc-600 light:text-zinc-400 leading-6 mb-8" aria-hidden="true">
       <span>---</span><br />
-      <span class="text-emerald-400 light:text-emerald-600">title</span>: "{title}"<br />
+      <span class="text-accent">title</span>: "{title}"<br />
       {isoDate && (
-        <><span class="text-emerald-400 light:text-emerald-600">date</span>: {isoDate}<br /></>
+        <><span class="text-accent">date</span>: {isoDate}<br /></>
       )}
       {tags && tags.length > 0 && (
-        <><span class="text-emerald-400 light:text-emerald-600">tags</span>: [{tags.join(', ')}]<br /></>
+        <><span class="text-accent">tags</span>: [{tags.join(', ')}]<br /></>
       )}
       <span>---</span>
     </div>
