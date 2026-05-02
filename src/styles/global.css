@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "@fontsource-variable/jetbrains-mono";
 
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 @variant dark (&:where(.dark, .dark *));
 @variant light (&:where(.light, .light *));
 
@@ -16,6 +20,10 @@
 
   .text-muted {
     @apply text-zinc-400 light:text-zinc-500;
+  }
+
+  .text-accent {
+    @apply text-emerald-400 light:text-emerald-600;
   }
 
   .bg-surface {
@@ -95,24 +103,33 @@
     }
   }
 
-  .nav-logo {
-    @apply bg-none pb-0 no-underline font-semibold text-zinc-100 light:text-zinc-900 tracking-tight
-           hover:text-emerald-400 light:hover:text-emerald-600
-           transition-colors duration-150;
+  .term-tab {
+    @apply no-underline bg-none pb-0 flex items-center gap-1
+           font-mono text-xs px-5 self-stretch
+           border-r border-zinc-800 light:border-zinc-200
+           text-zinc-500 light:text-zinc-500
+           border-t-2 border-t-transparent -mt-px
+           hover:text-zinc-300 light:hover:text-zinc-700
+           transition-colors duration-150 shrink-0;
   }
 
-  .nav-link {
-    @apply bg-none pb-0 text-sm text-zinc-300 light:text-zinc-600
-           border-t-2 border-transparent
-           hover:border-emerald-400 light:hover:border-emerald-600
-           hover:text-emerald-400 light:hover:text-emerald-600
-           transition-colors duration-150;
+  .term-tab-active {
+    @apply text-zinc-100 light:text-zinc-900
+           bg-zinc-900 light:bg-zinc-100
+           border-t-emerald-400 light:border-t-emerald-600;
   }
 
-  .nav-link-active {
-    @apply bg-none pb-1 text-sm text-zinc-100 light:text-zinc-900 font-semibold
-           border-b-2 border-emerald-400 light:border-emerald-600
-           hover:text-zinc-100 light:hover:text-zinc-900 transition-colors duration-150;
+  .term-prompt {
+    @apply font-mono text-sm text-zinc-500 light:text-zinc-400;
+  }
+
+  .term-dir-title {
+    @apply font-sans text-3xl font-extrabold tracking-tight leading-none
+           border-l-4 border-emerald-400 light:border-emerald-600 pl-3.5 mt-5 mb-2;
+  }
+
+  .cursor-blink {
+    animation: blink 1s steps(2) infinite;
   }
 
   .section-card {
@@ -148,6 +165,15 @@
     @apply mb-8 border-l-4 border-amber-400
            bg-zinc-900 px-4 py-3 text-sm text-amber-300
            light:bg-zinc-50 light:text-amber-700 light:border-amber-400;
+  }
+
+  .ls-row {
+    @apply grid grid-cols-[110px_100px_minmax(0,32px)_1fr] gap-4 py-2
+           items-baseline min-w-[480px] rounded transition-colors duration-100;
+  }
+
+  .ls-row-focused {
+    background-color: rgba(52, 211, 153, 0.08);
   }
 }
 

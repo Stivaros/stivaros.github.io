@@ -7,18 +7,32 @@ interface Props {
   date?: Date;
   description?: string;
   isLegacy?: boolean;
+  tags?: string[];
 }
 
-const { title, date, description, isLegacy = false } = Astro.props;
+const { title, date, description, isLegacy = false, tags } = Astro.props;
 const formattedDate = date ? formatDateForDisplay(date) : null;
+const isoDate = date ? date.toISOString().slice(0, 10) : null;
 ---
 
 <BaseLayout title={title} description={description}>
   <article class="max-w-2xl">
+    <div class="font-mono text-xs text-zinc-600 light:text-zinc-400 leading-6 mb-8" aria-hidden="true">
+      <span>---</span><br />
+      <span class="text-emerald-400 light:text-emerald-600">title</span>: "{title}"<br />
+      {isoDate && (
+        <><span class="text-emerald-400 light:text-emerald-600">date</span>: {isoDate}<br /></>
+      )}
+      {tags && tags.length > 0 && (
+        <><span class="text-emerald-400 light:text-emerald-600">tags</span>: [{tags.join(', ')}]<br /></>
+      )}
+      <span>---</span>
+    </div>
+
     <header class="mb-10">
-      <h1 class="text-4xl font-bold text-body mb-3 leading-tight">{title}</h1>
+      <h1 class="text-4xl font-extrabold tracking-tight leading-tight mb-3">{title}</h1>
       {date && formattedDate && (
-        <time datetime={date.toISOString()} class="text-sm text-muted">
+        <time datetime={date.toISOString()} class="font-mono text-sm text-zinc-500 light:text-zinc-400">
           {formattedDate}
         </time>
       )}
@@ -26,10 +40,10 @@ const formattedDate = date ? formatDateForDisplay(date) : null;
 
     {
       isLegacy && (
-        <div role="note" class="legacy-banner">
-          <strong class="font-semibold">Historical post</strong> — This was
-          written a while ago and may no longer reflect my current thinking or
-          the current state of the technology described.
+        <div role="note" class="legacy-banner mb-8">
+          <strong class="font-semibold">[LEGACY]</strong> —
+          Preserved from blog.stivaros.com verbatim. Newer thinking →
+          <a href="/thoughts">~/thoughts</a>
         </div>
       )
     }

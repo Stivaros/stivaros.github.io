@@ -1,49 +1,163 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const thoughts = await getCollection('thoughts');
+thoughts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const systems = await getCollection('systems');
+
+const archive = await getCollection('archive');
+archive.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function fmtDate(d: Date) {
+  return d.toISOString().slice(0, 10);
+}
 ---
 
 <BaseLayout
   title="stivaros"
   description="Engineer. Writing about systems, craft, and the work."
 >
-  <section class="mb-20">
-    <h1 class="text-6xl sm:text-7xl font-bold tracking-tight leading-none mb-5">
-      <span class="block border-l-4 border-emerald-400 pl-5 light:border-emerald-600">stivaros</span>
-    </h1>
-    <p class="text-lg text-muted pl-5 leading-relaxed">
-      Engineer. Writing about systems,<br />craft, and the work.
-    </p>
-  </section>
+  <div class="term-prompt mb-3">
+    <span class="text-accent">$</span> whoami
+  </div>
 
-  <nav
-    aria-label="Site sections"
-    class="grid grid-cols-1 sm:grid-cols-3 mb-20 border border-zinc-800 light:border-zinc-200"
-  >
-    <a href="/thoughts" class="section-card">
-      <h2 class="section-card-title">thoughts</h2>
-      <p class="text-body leading-relaxed">
-        Weekly technical notes, observations, and short essays.
-      </p>
-    </a>
+  <h1 class="text-6xl sm:text-7xl font-extrabold tracking-tight leading-none mb-5 text-zinc-100 light:text-zinc-900">
+    Efstathios Stivaros
+  </h1>
 
-    <a
-      href="/systems"
-      class="section-card border-t border-zinc-800 light:border-zinc-200 sm:border-t-0 sm:border-l"
-    >
-      <h2 class="section-card-title">systems</h2>
-      <p class="text-body leading-relaxed">
-        Case studies in engineering and product.
-      </p>
-    </a>
+  <p class="font-mono text-sm text-zinc-400 light:text-zinc-500 leading-relaxed mb-12 max-w-xl">
+    Software engineer. Tech lead. Manager. Consultant — in roughly that order,<br />
+    and back again. Currently shipping Ruby at
+    <a href="https://shopify.com" class="text-accent">Shopify</a>.
+  </p>
 
-    <a
-      href="/archive"
-      class="section-card border-t border-zinc-800 light:border-zinc-200 sm:border-t-0 sm:border-l"
-    >
-      <h2 class="section-card-title">archive</h2>
-      <p class="text-body leading-relaxed">
-        Posts from the old blog at blog.stivaros.com, preserved for reference.
-      </p>
-    </a>
-  </nav>
+  <div class="term-prompt mb-4">
+    <span class="text-accent">$</span> ls -la
+  </div>
+
+  <div class="link-fill font-mono text-sm mb-12 overflow-x-auto">
+    <div id="ls-row-thoughts" class="ls-row">
+      <span class="text-zinc-600">dr--r--r--</span>
+      <span class="text-zinc-500">{fmtDate(thoughts[0].data.date)}</span>
+      <span class="text-zinc-500 text-right">{thoughts.length}</span>
+      <span>
+        <a href="/thoughts">thoughts/</a>
+        <span class="text-zinc-600 ml-3"># weekly notes on the craft</span>
+      </span>
+    </div>
+    <div id="ls-row-systems" class="ls-row">
+      <span class="text-zinc-600">dr--r--r--</span>
+      <span class="text-zinc-500">—</span>
+      <span class="text-zinc-500 text-right">{systems.length}</span>
+      <span>
+        <a href="/systems">systems/</a>
+        <span class="text-zinc-600 ml-3"># case studies, with diagrams</span>
+      </span>
+    </div>
+    <div id="ls-row-archive" class="ls-row">
+      <span class="text-zinc-600">dr--r--r--</span>
+      <span class="text-zinc-500">{fmtDate(archive[0].data.date)}</span>
+      <span class="text-zinc-500 text-right">{archive.length}</span>
+      <span>
+        <a href="/archive">archive/</a>
+        <span class="text-zinc-600 ml-3"># migrated from blog.stivaros.com</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="term-prompt border border-emerald-400/40 light:border-emerald-600/40 px-3 py-1.5 inline-flex items-center">
+    <span class="text-accent">$</span>
+    <span
+      id="terminal-filter"
+      role="textbox"
+      contenteditable="plaintext-only"
+      spellcheck="false"
+      data-placeholder="filter..."
+      aria-label="Filter sections"
+      class="font-mono text-sm text-zinc-100 light:text-zinc-900 ml-1 outline-none inline-block"
+    ></span>
+  </div>
 </BaseLayout>
+
+<style>
+  #terminal-filter {
+    caret-color: transparent;
+    min-width: 1ch;
+  }
+  #terminal-filter:focus-visible {
+    box-shadow: none;
+  }
+  #terminal-filter::after {
+    content: '';
+    display: inline-block;
+    width: 0.5em;
+    height: 1.5em;
+    background-color: #34d399; /* emerald-400 */
+    vertical-align: bottom;
+    animation: blink 1s steps(2) infinite;
+  }
+  :global(.light) #terminal-filter::after {
+    background-color: #059669; /* emerald-600 */
+  }
+  #terminal-filter:empty::before {
+    content: attr(data-placeholder);
+    color: #52525b; /* zinc-600 */
+  }
+</style>
+
+<script>
+  const input = document.getElementById('terminal-filter') as HTMLElement;
+  const rows = [
+    { el: document.getElementById('ls-row-thoughts')!, href: '/thoughts', name: 'thoughts' },
+    { el: document.getElementById('ls-row-systems')!,  href: '/systems',  name: 'systems'  },
+    { el: document.getElementById('ls-row-archive')!,  href: '/archive',  name: 'archive'  },
+  ];
+
+  let focusedIndex = -1;
+
+  const visibleRows = () => rows.filter(r => r.el.style.display !== 'none');
+
+  function setFocus(index: number) {
+    focusedIndex = index;
+    rows.forEach(r => r.el.classList.remove('ls-row-focused'));
+    const visible = visibleRows();
+    if (focusedIndex >= 0 && focusedIndex < visible.length) {
+      visible[focusedIndex].el.classList.add('ls-row-focused');
+    }
+  }
+
+  input.focus();
+
+  input.addEventListener('input', () => {
+    // Browsers sometimes insert a <br> when content is fully cleared
+    if (input.innerHTML === '<br>') input.innerHTML = '';
+    const q = (input.textContent ?? '').toLowerCase();
+    rows.forEach(r => {
+      r.el.style.display = !q || r.name.includes(q) ? '' : 'none';
+    });
+    setFocus(-1);
+  });
+
+  input.addEventListener('keydown', (e: KeyboardEvent) => {
+    const visible = visibleRows();
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setFocus(Math.min(focusedIndex + 1, visible.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setFocus(Math.max(focusedIndex - 1, 0));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const target = focusedIndex >= 0 ? visible[focusedIndex] : visible[0];
+      if (target) window.location.href = target.href;
+    }
+  });
+
+  input.addEventListener('paste', (e: ClipboardEvent) => {
+    e.preventDefault();
+    const text = e.clipboardData?.getData('text/plain') ?? '';
+    document.execCommand('insertText', false, text);
+  });
+</script>

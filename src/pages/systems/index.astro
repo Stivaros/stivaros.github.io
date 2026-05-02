@@ -10,32 +10,44 @@ const entries: CollectionEntry<'systems'>[] = await getCollection('systems');
   title="Systems — stivaros"
   description="Case studies in engineering and product."
 >
-  <header class="mb-10">
-    <h1 class="text-3xl font-bold text-body mb-2">Systems</h1>
-    <p class="text-muted">Case studies in engineering and product.</p>
-  </header>
+  <div class="term-prompt mb-4">
+    <span class="text-emerald-400 light:text-emerald-600">$</span>
+    <span class="ml-1">systems --list</span>
+  </div>
+
+  <h1 class="term-dir-title mb-2">systems/</h1>
+  <p class="font-mono text-sm text-zinc-500 light:text-zinc-400 mb-8 ml-4">
+    # case studies — each ships with a logic toggle: prose / diagram
+  </p>
 
   {
     entries.length === 0 ? (
-      <p class="text-muted">No case studies yet.</p>
+      <p class="term-prompt">No case studies yet.</p>
     ) : (
-      <ul class="link-fill space-y-8">
-        {entries.map((entry) => (
-          <li class="flex flex-col gap-2">
-            <a href={`/systems/${entry.id}`} class="font-semibold text-lg w-fit">
-              {entry.data.title}
-            </a>
-            <p class="text-muted text-sm">{entry.data.impact}</p>
-            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
-              {entry.data.technology.map((tech) => (
-                <li>
-                  <span class="tag">{tech}</span>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <div class="link-fill overflow-x-auto">
+        {entries.map((entry, i) => {
+          const id = `sys-${String(i + 1).padStart(3, '0')}`;
+          const stack = entry.data.technology.join('/');
+          return (
+            <div class="grid grid-cols-[80px_1fr] sm:grid-cols-[80px_1fr_180px] gap-4 py-5 border-t border-zinc-800 light:border-zinc-200 items-baseline min-w-[360px]">
+              <span class="font-mono text-xs text-emerald-400 light:text-emerald-600">{id}</span>
+              <div>
+                <a href={`/systems/${entry.id}`} class="text-lg font-semibold block mb-1">
+                  {entry.data.title}
+                </a>
+                <p class="font-mono text-xs text-zinc-500 light:text-zinc-400">
+                  {entry.data.impact}
+                </p>
+              </div>
+              <div class="hidden sm:block font-mono text-xs text-right">
+                <span class="text-zinc-500">stack:</span>
+                <span class="text-zinc-400 light:text-zinc-500 ml-1">{stack}</span>
+              </div>
+            </div>
+          );
+        })}
+        <div class="border-t border-zinc-800 light:border-zinc-200" />
+      </div>
     )
   }
 </BaseLayout>

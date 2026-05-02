@@ -16,11 +16,14 @@ function isActive(href: string): boolean {
   return pathname.startsWith(href);
 }
 
-const navLinks = [
-  { href: '/thoughts', label: 'thoughts' },
-  { href: '/systems',  label: 'systems'  },
-  { href: '/archive',  label: 'archive'  },
+const navItems = [
+  { href: '/',         path: '~'          },
+  { href: '/thoughts', path: '~/thoughts' },
+  { href: '/systems',  path: '~/systems'  },
+  { href: '/archive',  path: '~/archive'  },
 ] as const;
+
+const gutterLines = Array.from({ length: 60 }, (_, i) => i + 1);
 ---
 
 <!doctype html>
@@ -40,38 +43,53 @@ const navLinks = [
     </script>
   </head>
   <body class="min-h-screen">
-    <header class="bg-surface border-b border-subtle">
-      <nav class="max-w-4xl mx-auto px-6 py-5 flex items-center gap-8">
-        <a href="/" class="nav-logo">
-          stivaros
-        </a>
-
-        <div class="link-fill contents">
-          {navLinks.map(({ href, label }) => (
-            isActive(href) ? (
-              <a href={href} aria-current="page" class="nav-link-active">
-                {label}
-              </a>
-            ) : (
-              <a href={href} class="nav-link">
-                {label}
-              </a>
-            )
-          ))}
+    <header class="border-b border-zinc-800 light:border-zinc-200 bg-zinc-950 light:bg-white">
+      <div class="flex items-stretch font-mono text-xs overflow-x-auto">
+        <div class="flex items-center px-5 py-3 border-r border-zinc-800 light:border-zinc-200 shrink-0 gap-0">
+          <span class="text-emerald-400 light:text-emerald-600">stath</span>
+          <span class="text-zinc-500">@</span>
+          <span class="text-zinc-100 light:text-zinc-900">stivaros.com</span>
         </div>
 
-        <div class="ml-auto">
+        {navItems.map(({ href, path }) => (
+          isActive(href) ? (
+            <a href={href} aria-current="page" class="term-tab term-tab-active">
+              <span class="text-zinc-500 light:text-zinc-400">cd</span>{path}
+            </a>
+          ) : (
+            <a href={href} class="term-tab">
+              <span class="text-zinc-600 light:text-zinc-400">cd</span>{path}
+            </a>
+          )
+        ))}
+
+        <div class="flex-1" />
+
+        <div class="hidden sm:flex items-center px-5 border-l border-zinc-800 light:border-zinc-200 text-zinc-600 light:text-zinc-400 shrink-0">
+          branch: main
+        </div>
+
+        <div class="flex items-center px-3 border-l border-zinc-800 light:border-zinc-200 text-zinc-400 light:text-zinc-500">
           <ThemeToggle />
         </div>
-      </nav>
+      </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-12">
-      <slot />
+    <main class="max-w-4xl mx-auto flex">
+      <div
+        class="hidden sm:block w-14 shrink-0 font-mono text-[11px] leading-6 text-right pr-4 pt-12 text-zinc-700 light:text-zinc-400 border-r border-zinc-800 light:border-zinc-200 select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        {gutterLines.map(n => <div>{n}</div>)}
+      </div>
+
+      <div class="flex-1 min-w-0 px-4 sm:px-8 py-12">
+        <slot />
+      </div>
     </main>
 
-    <footer class="border-t border-subtle mt-20">
-      <div class="max-w-4xl mx-auto px-6 py-6 text-sm text-muted">
+    <footer class="border-t border-zinc-800 light:border-zinc-200 mt-12">
+      <div class="max-w-4xl mx-auto px-6 py-6 text-xs text-zinc-600 font-mono">
         &copy; {new Date().getFullYear()} stivaros
       </div>
     </footer>
