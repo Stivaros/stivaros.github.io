@@ -41,15 +41,28 @@ const gutterLines = Array.from({ length: 60 }, (_, i) => i + 1);
         html.classList.add(theme);
       })();
     </script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        var el = document.getElementById('nav-email');
+        if (!el) return;
+        var email = el.dataset.u + '@' + el.dataset.d;
+        el.href = 'mailto:' + email;
+        el.innerHTML =
+          '<span class="text-accent">' + el.dataset.u + '</span>' +
+          '<span class="text-zinc-500">@</span>' +
+          '<span class="text-zinc-100 light:text-zinc-900">' + el.dataset.d + '</span>';
+      });
+    </script>
   </head>
   <body class="min-h-screen">
     <header class="border-b border-zinc-800 light:border-zinc-200 bg-zinc-950 light:bg-white">
       <div class="flex items-stretch font-mono text-xs overflow-x-auto">
-        <div class="flex items-center px-5 py-3 border-r border-zinc-800 light:border-zinc-200 shrink-0 gap-0">
-          <span class="text-accent">stath</span>
-          <span class="text-zinc-500">@</span>
-          <span class="text-zinc-100 light:text-zinc-900">stivaros.com</span>
-        </div>
+        <a
+          id="nav-email"
+          data-u="efstathios"
+          data-d="stivaros.com"
+          class="flex items-center px-5 py-3 border-r border-zinc-800 light:border-zinc-200 shrink-0 gap-0"
+        ></a>
 
         {navItems.map(({ href, path }) => (
           isActive(href) ? (
