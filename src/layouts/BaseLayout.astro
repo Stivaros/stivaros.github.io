@@ -41,46 +41,31 @@ const gutterLines = Array.from({ length: 60 }, (_, i) => i + 1);
         html.classList.add(theme);
       })();
     </script>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        var el = document.getElementById('nav-email');
-        if (!el) return;
-        var email = el.dataset.u + '@' + el.dataset.d;
-        el.href = 'mailto:' + email;
-        el.innerHTML =
-          '<span class="text-accent">' + el.dataset.u + '</span>' +
-          '<span class="text-zinc-500">@</span>' +
-          '<span class="text-zinc-100 light:text-zinc-900">' + el.dataset.d + '</span>';
-      });
-    </script>
   </head>
   <body class="min-h-screen">
     <header class="border-b border-zinc-800 light:border-zinc-200 bg-zinc-950 light:bg-white">
       <div class="flex items-stretch font-mono text-xs overflow-x-auto">
-        <a
-          id="nav-email"
-          data-u="efstathios"
-          data-d="stivaros.com"
-          class="flex items-center px-5 py-3 border-r border-zinc-800 light:border-zinc-200 shrink-0 gap-0"
-        ></a>
-
-        {navItems.map(({ href, path }) => (
-          isActive(href) ? (
+        {navItems.map(({ href, path }) => {
+          const active = isActive(href);
+          const isHome = href === '/';
+          return active ? (
             <a href={href} aria-current="page" class="term-tab term-tab-active">
-              <span class="text-zinc-500 light:text-zinc-400">cd</span>{path}
+              <span class="text-zinc-500 light:text-zinc-400">cd</span>
+              {isHome ? (
+                <>{path}<span class="text-zinc-600 light:text-zinc-400"> | </span><span class="text-zinc-300 light:text-zinc-600">home</span></>
+              ) : path}
             </a>
           ) : (
-            <a href={href} class="term-tab">
-              <span class="text-zinc-600 light:text-zinc-400">cd</span>{path}
+            <a href={href} class:list={["term-tab", "group", isHome && "pr-8"]}>
+              <span class="text-zinc-600 light:text-zinc-400 group-hover:text-zinc-400 light:group-hover:text-zinc-600 transition-colors">cd</span>
+              {isHome ? (
+                <>{path}<span class="text-zinc-700 light:text-zinc-500 group-hover:text-zinc-500 transition-colors"> | </span><span class="text-emerald-400 light:text-emerald-600 group-hover:text-emerald-300 light:group-hover:text-emerald-500 transition-colors">home</span></>
+              ) : path}
             </a>
-          )
-        ))}
+          );
+        })}
 
         <div class="flex-1" />
-
-        <a href="https://github.com/stivaros/stivaros.github.io" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center px-5 border-l border-zinc-800 light:border-zinc-200 text-zinc-600 light:text-zinc-400 hover:text-zinc-400 light:hover:text-zinc-600 shrink-0 transition-colors">
-          branch: main
-        </a>
 
         <div class="flex items-center px-3 border-l border-zinc-800 light:border-zinc-200 text-zinc-400 light:text-zinc-500">
           <ThemeToggle />
