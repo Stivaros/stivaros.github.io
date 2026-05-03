@@ -87,9 +87,81 @@ const gutterLines = Array.from({ length: 60 }, (_, i) => i + 1);
     </main>
 
     <footer class="border-t border-zinc-800 light:border-zinc-200 mt-12">
-      <div class="max-w-4xl mx-auto px-6 py-6 text-xs text-zinc-600 font-mono">
-        &copy; {new Date().getFullYear()} stivaros
+      <div class="max-w-4xl mx-auto px-6 py-10 font-mono text-sm">
+
+        <div class="text-zinc-500 light:text-zinc-400 mb-6">
+          <span class="text-accent">$</span> man stivaros
+        </div>
+
+        <div class="space-y-6 text-zinc-300 light:text-zinc-700">
+
+          <div class="flex justify-between text-zinc-500 light:text-zinc-400 text-xs">
+            <span>STIVAROS(1)</span>
+            <span>Personal Site</span>
+            <span>STIVAROS(1)</span>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">NAME</div>
+            <div class="pl-8">stivaros &ndash; software engineer</div>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">SYNOPSIS</div>
+            <div class="pl-8">
+              stivaros [<a href="/thoughts" class="text-accent hover:text-zinc-100 light:hover:text-zinc-900 transition-colors">--thoughts</a>] [<a href="/systems" class="text-accent hover:text-zinc-100 light:hover:text-zinc-900 transition-colors">--systems</a>] [<a href="/archive" class="text-accent hover:text-zinc-100 light:hover:text-zinc-900 transition-colors">--archive</a>]
+            </div>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">CONTACT</div>
+            <div class="pl-8">
+              <a
+                id="footer-email"
+                data-u="efstathios"
+                data-d="stivaros.com"
+                class="hover:text-zinc-100 light:hover:text-zinc-900 transition-colors"
+              >efstathios@stivaros.com</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">SOURCE</div>
+            <div class="pl-8">
+              <a href="https://github.com/stivaros/stivaros.github.io" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-100 light:hover:text-zinc-900 transition-colors">
+                github.com/stivaros/stivaros.github.io
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">SEE ALSO</div>
+            <div class="link-fill pl-8 flex flex-wrap gap-x-6 gap-y-1">
+              <a href="https://ruby.social/@Stath" target="_blank" rel="noopener noreferrer">mastodon(1)</a>
+              <a href="https://github.com/stivaros" target="_blank" rel="noopener noreferrer">github(1)</a>
+              <a href="https://bsky.app/profile/stivaros.com" target="_blank" rel="noopener noreferrer">bsky(1)</a>
+              <a href="https://www.linkedin.com/in/estivaros/" target="_blank" rel="noopener noreferrer">linkedin(1)</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-zinc-100 light:text-zinc-900 font-bold mb-1">COPYRIGHT</div>
+            <div class="pl-8 text-zinc-500 light:text-zinc-400">
+              &copy; {new Date().getFullYear()} stivaros
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      <script is:inline>
+        document.addEventListener('DOMContentLoaded', function () {
+          var el = document.getElementById('footer-email');
+          if (!el) return;
+          var email = el.dataset.u + '@' + el.dataset.d;
+          el.href = 'mailto:' + email;
+        });
+      </script>
     </footer>
   </body>
 </html>
