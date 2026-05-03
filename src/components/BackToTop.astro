@@ -1,0 +1,33 @@
+---
+---
+
+<button
+  id="back-to-top"
+  aria-label="Back to top"
+  class="fixed bottom-6 right-6 z-50 font-mono text-xs px-3 py-2
+         bg-zinc-900 light:bg-zinc-100
+         border border-zinc-700 light:border-zinc-300
+         text-zinc-400 light:text-zinc-500
+         hover:text-zinc-100 light:hover:text-zinc-900
+         hover:border-zinc-500 light:hover:border-zinc-400
+         transition-all duration-200
+         opacity-0 pointer-events-none translate-y-2"
+>↑ top</button>
+
+<script>
+  const btn = document.getElementById('back-to-top') as HTMLButtonElement | null;
+  const header = document.querySelector('header');
+
+  if (btn && header) {
+    new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      btn.classList.toggle('opacity-0', visible);
+      btn.classList.toggle('pointer-events-none', visible);
+      btn.classList.toggle('translate-y-2', visible);
+    }).observe(header);
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

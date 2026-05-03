@@ -33,6 +33,10 @@
   .border-subtle {
     @apply border-zinc-800 light:border-zinc-200;
   }
+
+  .border-accent {
+    @apply border-emerald-400 light:border-emerald-600;
+  }
 }
 
 @layer components {
