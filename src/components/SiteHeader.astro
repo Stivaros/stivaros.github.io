@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from '@components/ThemeToggle.astro';
+import NavLink from '@components/NavLink.astro';
 
 const pathname = Astro.url.pathname;
 
@@ -16,32 +17,60 @@ const navItems = [
 ] as const;
 ---
 
-<header class="border-b border-subtle bg-zinc-950 light:bg-white">
-  <div class="flex items-stretch font-mono text-xs overflow-x-auto">
-    {navItems.map(({ href, path }) => {
-      const active = isActive(href);
-      const isHome = href === '/';
-      return active ? (
-        <a href={href} aria-current="page" class="term-tab term-tab-active">
-          <span class="text-zinc-500 light:text-zinc-400">cd</span>
-          {isHome ? (
-            <>{path}<span class="text-zinc-600 light:text-zinc-400"> | </span><span class="text-zinc-300 light:text-zinc-600">home</span></>
-          ) : path}
-        </a>
-      ) : (
-        <a href={href} class:list={["term-tab", "group", isHome && "pr-8"]}>
-          <span class="text-zinc-600 light:text-zinc-400 group-hover:text-zinc-400 light:group-hover:text-zinc-600 transition-colors">cd</span>
-          {isHome ? (
-            <>{path}<span class="text-zinc-700 light:text-zinc-500 group-hover:text-zinc-500 transition-colors"> | </span><span class="text-emerald-400 light:text-emerald-600 group-hover:text-emerald-300 light:group-hover:text-emerald-500 transition-colors">home</span></>
-          ) : path}
-        </a>
-      );
-    })}
+<header class="relative border-b border-subtle bg-zinc-950 light:bg-white font-mono text-xs">
+  <div class="flex items-stretch">
 
-    <div class="flex-1" />
+    <button
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="nav-items"
+      class="sm:hidden flex items-center px-4 py-3 text-zinc-400 light:text-zinc-600 hover:text-zinc-200 light:hover:text-zinc-800 border-r border-subtle"
+    >
+      <span id="menu-label">[ menu + ]</span>
+    </button>
+
+    <!--
+      Single render of nav items.
+      Desktop (sm+): sm:contents makes this wrapper transparent to the flex row,
+        so tabs become direct flex children alongside ThemeToggle.
+      Mobile closed: hidden.
+      Mobile open (via JS): flex flex-col absolute top-full = dropdown below header.
+      bg/border/divide only render when the box exists (ignored under display:contents).
+    -->
+    <div
+      id="nav-items"
+      class="hidden sm:contents absolute top-full left-0 right-0 z-10
+             bg-zinc-950 light:bg-white border-b border-subtle
+             divide-y divide-zinc-800 light:divide-zinc-200"
+    >
+      {navItems.map(({ href, path }) => (
+        <NavLink href={href} path={path} active={isActive(href)} />
+      ))}
+      <div class="flex-1 hidden sm:block" />
+    </div>
 
     <div class="flex items-center px-3 border-l border-subtle text-muted">
       <ThemeToggle />
     </div>
+
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav-items');
+  const label = document.getElementById('menu-label');
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    if (open) {
+      nav?.classList.add('hidden');
+      nav?.classList.remove('flex', 'flex-col');
+    } else {
+      nav?.classList.remove('hidden');
+      nav?.classList.add('flex', 'flex-col');
+    }
+    if (label) label.textContent = open ? '[ menu + ]' : '[ menu - ]';
+  });
+</script>

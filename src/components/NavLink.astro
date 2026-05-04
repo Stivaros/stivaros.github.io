@@ -1,0 +1,41 @@
+---
+interface Props {
+  href: string;
+  path: string;
+  active: boolean;
+}
+
+const { href, path, active } = Astro.props;
+const isHome = href === '/';
+---
+
+<a
+  href={href}
+  aria-current={active ? 'page' : undefined}
+  class:list={[
+    'term-tab mt-0 sm:-mt-px border-r-0 sm:border-r py-3 sm:py-0',
+    active ? 'term-tab-active' : 'group',
+    isHome && 'sm:pr-8',
+  ]}
+>
+  <span class:list={[
+    active
+      ? 'text-zinc-500 light:text-zinc-400'
+      : 'text-zinc-600 light:text-zinc-400 group-hover:text-zinc-400 light:group-hover:text-zinc-600 transition-colors'
+  ]}>cd</span>
+  {isHome ? (
+    <>
+      {path}
+      <span class:list={[
+        active
+          ? 'text-zinc-600 light:text-zinc-400'
+          : 'text-zinc-700 light:text-zinc-500 group-hover:text-zinc-500 transition-colors'
+      ]}> | </span>
+      <span class:list={[
+        active
+          ? 'text-zinc-300 light:text-zinc-600'
+          : 'text-emerald-400 light:text-emerald-600 group-hover:text-emerald-300 light:group-hover:text-emerald-500 transition-colors'
+      ]}>home</span>
+    </>
+  ) : path}
+</a>
