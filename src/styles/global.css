@@ -136,21 +136,6 @@
     animation: blink 1s steps(2) infinite;
   }
 
-  .section-card {
-    @apply no-underline bg-none bg-zinc-950 light:bg-zinc-50 px-6 py-8
-           hover:bg-zinc-900 light:hover:bg-white
-           transition-colors duration-150;
-  }
-
-  .section-card-title {
-    @apply text-xs font-mono uppercase tracking-widest text-zinc-400 light:text-zinc-500 mb-3
-           transition-colors duration-150;
-  }
-
-  .section-card:hover .section-card-title {
-    @apply text-emerald-400 light:text-emerald-600;
-  }
-
   .tab-btn {
     @apply px-4 py-2 text-sm font-mono text-zinc-400 light:text-zinc-500
            border-b-2 border-transparent -mb-px
